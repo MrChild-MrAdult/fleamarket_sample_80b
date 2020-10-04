@@ -2,7 +2,7 @@
 lock "3.14.1"
 
 set :application, "fleamarket_sample_80b"
-set :repo_url, 'git@github.com:MrChild-MrAdult/fleamarket-sample-80b.git'
+set :repo_url, 'git@github.com:MrChild-MrAdult/fleamarket_sample_80b.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
