@@ -23,3 +23,92 @@ Things you may want to cover:
 
 * ...
 # team-app
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|birth_day|string|null: false|
+|user_img|string|
+|introduction|text|
+### Association
+- has_many :products dependent: :destroy
+- has_one :destinations dependent: :destroy
+- has_one :credit_cards dependent: :destroy
+
+## destinationテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|post_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string|
+|phone_number|string|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+## credit_cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|price|string|null: false|
+|cost|string|null: false|
+|status|string|null: false|
+|description|string|null: false|
+|prefecture|string|null: false|
+|delivery_day|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+|brand_id|integer|
+### Association
+- belongs_to :user dependent: :destroy
+- belongs_to :category dependent: :destroy
+- belongs_to :brand dependent: :destroy
+- has_many :images dependent: :destroy
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|
+### Association
+- has_many :products
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true|
+### Association
+- has_many :products
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|url1|string|null: false|
+|url2|string|
+|url3|string|
+|url4|string|
+|url5|string|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :product
