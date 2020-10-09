@@ -39,10 +39,10 @@ Things you may want to cover:
 |introduction|text|
 ### Association
 - has_many :products dependent: :destroy
-- has_one :destinations dependent: :destroy
-- has_one :credit_cards dependent: :destroy
+- has_one :destination dependent: :destroy
+- has_one :credit_card dependent: :destroy
 
-## destinationテーブル
+## destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |family_name|string|null: false|
@@ -74,9 +74,11 @@ Things you may want to cover:
 |price|string|null: false|
 |cost|string|null: false|
 |status|string|null: false|
+|size|string|null: false|
 |description|string|null: false|
 |prefecture|string|null: false|
 |delivery_day|string|null: false|
+|judgment|string|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|
