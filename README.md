@@ -34,7 +34,7 @@ Things you may want to cover:
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|birth_day|string|null: false|
+|birth_day|date|null: false|
 |user_img|string|
 |introduction|text|
 ### Association
@@ -62,7 +62,8 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|number|string|null: false|
+|coutomer_id|string|null: false|
+|card_id|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -81,7 +82,7 @@ Things you may want to cover:
 |judgment|string|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|
+|brand_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user dependent: :destroy
 - belongs_to :category dependent: :destroy
@@ -106,11 +107,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|url1|string|null: false|
-|url2|string|
-|url3|string|
-|url4|string|
-|url5|string|
+|url|string|null: false|
 |product_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
