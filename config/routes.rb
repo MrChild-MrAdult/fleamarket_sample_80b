@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  root 'items#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'products#index'
+  resources :products, only: [:index, :search, :show, :new, :create, :edit, :update] do
+    member do
+      get :pay
+      get :check
+    end
+  end
 end
