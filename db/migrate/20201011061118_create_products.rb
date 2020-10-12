@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :prefecture, null: false
       t.string :delivery_day, null: false
       t.string :judgment
-      # 以下3つは後に外部キーをつける
+      # 以下3つは後に、null: falseとforeign_key: trueをつける
       t.integer :user_id, null: false
       t.integer :category_id, null: false
       t.integer :brand_id, null: false
