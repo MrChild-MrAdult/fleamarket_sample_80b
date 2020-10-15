@@ -68,3 +68,6 @@ end
 
 # 2020.10.11追加
 gem 'pry-rails'
+
+# 2020.10.14追加
+gem "haml-rails"

@@ -1,0 +1,46 @@
+.footer
+  %ul.footer__contents
+    %li.footer__content
+      %h2.footer__content__head FURIMAについて
+      %ul
+        %li
+          = link_to root_path do
+            会社概要（運営会社）
+        %li
+          = link_to root_path do
+            プライバシーポリシー
+        %li
+          = link_to root_path do
+            FURIMA利用規約
+        %li
+          = link_to root_path do
+            ポイントに関する特約
+    %li.footer__content
+      %h2.footer__content__head FURIMAを見る
+      %ul
+        %li
+          = link_to root_path do
+            カテゴリー一覧
+        %li
+          = link_to root_path do
+            ブランド一覧
+    %li.footer__content
+      %h2.footer__content__head ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to root_path do
+            FURIMAガイド
+        %li
+          = link_to root_path do
+            FURIMAロゴ利用ガイドライン
+        %li
+          = link_to root_path do
+            お知らせ
+  .footer__logo
+    = link_to root_path do
+      = image_tag "/assets/logo-white.png"
+  %p © FURIMA
+= link_to root_path do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    = image_tag "/assets/icon_camera.png", class: "purchaseBtn__icon"
