@@ -16,9 +16,9 @@ body {
 .topHeader {
   padding: 0 60px;
   &__inner {
-    max-width: 1040px;
+    max-width: 1010px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 50px;
     padding: 15px 0 0;
   }
 }
@@ -80,6 +80,7 @@ img {
   font-size: 14px;
   display: flex;
   margin-bottom: 10px;
+  padding: 0 60px 0 50px;
   ul {
     list-style: none;
   }

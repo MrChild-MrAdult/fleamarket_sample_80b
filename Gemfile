@@ -71,3 +71,6 @@ gem 'pry-rails'
 
 # 2020.10.14追加
 gem "haml-rails"
+
+# 2020.10.15追加
+gem 'font-awesome-sass'
