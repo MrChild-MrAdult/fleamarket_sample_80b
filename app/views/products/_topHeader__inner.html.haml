@@ -2,13 +2,13 @@
   .mainHeader
     %h1.icon
       = link_to root_path do
-        = image_tag "/assets/logo.png"
+        = image_tag asset_path("logo.png")
     .searchBox
       %form{"accept-charset": "UTF-8", action: "#", method: "get"}
         %input{name: "utf8", type: "hidden", value: "✓"}/
         %input#searchInput.searchBox__input{name: "key", placeholder: "キーワードから探す"}/
         %button{type: "submit"}
           .searchBox__icon
-            = image_tag "/assets/icon-search.png"
+            = image_tag asset_path("icon-search.png")
         %input{name: "authenticity_token", type: "hidden", value: "63NRKirdP0PAucshyEoZtgi8YdO7zNGF0OSjAmP0f9d9lubm9bfmesKBpUhCaqD/SMU5IVdzx8/30VoiRUmr1w=="}/
     %ul.resultLists
