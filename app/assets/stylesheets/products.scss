@@ -314,6 +314,7 @@ $furima-color: #3CCACE;
   width: $width1;
   margin: 0 auto;
   display: flex;
+  padding-bottom: 30px;
   &__list {
     width: $width1;
     margin: 20px auto;
@@ -326,8 +327,8 @@ $furima-color: #3CCACE;
         background-color: aqua;
       }
       &__content {
-        width: 200px;
-        height: 70px;
+        width: 230px;
+        height: 100px;
         padding: 15px;
         background-color: #fff;
         .other__price-like {

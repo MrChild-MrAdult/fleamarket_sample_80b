@@ -1,50 +1,6 @@
 
 = render 'topHeader__inner'
 
-.nav
-  %ul.listsLeft
-    %li.listsLeft__item.listsLeft__item--first
-      = link_to root_path class:"catBtn" do
-        カテゴリー
-      .tree.displayNone
-        %ul.categoryTree
-          %li.categoryTree--item
-            = link_to root_path, "レディース"
-          %li.categoryTree--item
-            = link_to root_path, "メンズ"
-          %li.categoryTree--item
-            = link_to root_path, "ベビー・キッズ"
-          %li.categoryTree--item
-            = link_to root_path, "インテリア・住まい・小物"
-          %li.categoryTree--item
-            = link_to root_path, "本・音楽・ゲーム"
-          %li.categoryTree--item
-            = link_to root_path, "おもちゃ・ホビー・グッズ"
-          %li.categoryTree--item
-            = link_to root_path, "コスメ・香水・美容"
-          %li.categoryTree--item
-            = link_to root_path, "家電・スマホ・カメラ"
-          %li.categoryTree--item
-            = link_to root_path, "スポーツ・レジャー"
-          %li.categoryTree--item
-            = link_to root_path, "ハンドメイド"
-          %li.categoryTree--item
-            = link_to root_path, "チケット"
-          %li.categoryTree--item
-            = link_to root_path, "自動車・オートバイ"
-          %li.categoryTree--item
-            = link_to root_path, "その他"
-    %li.listsLeft__item
-      = link_to root_path class: "brandBtn" do
-        ブランド
-      %ul.brandsPulldown.displayNone
-  %ul.listsRight
-    %li.listsRight__item.listsRight__item--login
-      = link_to root_path do
-        ログイン
-    %li.listsRight__item.listsRight__item--new
-      = link_to root_path do
-        新規会員登録
         
 .main
   %section.mainVisual
@@ -273,14 +229,5 @@
                   %i.fa.fa-star.likeIcon
                   1
               %p (税込)
-%aside.appBanner
-  .inner
-    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text 今すぐ無料ダウンロード！
-    .inner__icon
-      = link_to root_path do
-        = image_tag "/assets/app-store.svg", class: "linkIcon", class: "aBtn"
-      = link_to root_path do
-        = image_tag "/assets/google-play.svg", class: "linkIcon", class: "gBtn"
 
 = render 'footer'
