@@ -1,0 +1,40 @@
+= render 'products/topHeader__inner'
+
+%main.l-container
+  .l-content
+    .card
+      .card__info
+        クレジットカード情報入力
+      .card__registration
+        = form_with model: @credit_card, html: {class: "form_box"}, local: true do |f|
+          .card__number
+            %label カード番号
+            %span 必須
+            .number__form
+              = f.number_field :card_id, class: "card__form", maxlength: "16", placeholder: "半角数字のみ"
+            .card__img
+              = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/visa-91c71914c6ae23d33f896e60bb1e3859.svg', alt: '画像', class: 'card--img'
+              = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mastercard-8b5b68c12b7a2fc8619c71f49ef9209b.svg', alt: '画像', class: 'card--img'
+              = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/saison-550107415f39b81fa19e87c96486ba20.svg', alt: '画像', class: 'card--img'
+              = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/jcb-9ea981d20008c6545aa3afd1b3da9804.svg', alt: '画像', class: 'card--img'
+          .card__deadline
+            %label 有効期限
+            %span 必須
+            .deadline__form
+              .deadline__month
+                = f.select :cousomer_id, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], {}, class: "card__form--number"
+                月
+              .deadline__year
+                = f.select :cousomer_id, [["20",1],["21",2],["22",3],["23",4],["24",5],["25",6],["26",7],["27",8],["28",9],["29",10],["30",11]], {}, class: "card__form--number"
+                年
+          .card__code
+            %label セキュリティーコード
+            %span 必須
+            .code__form
+              = f.text_field :cousomer_id, class: "card__form", maxlength: "4", placeholder: "カード背面の4桁または3桁の番号"
+          .form_submit
+            = f.submit '登録する', class: "submit"
+
+  = render partial: 'users/side'
+
+= render 'products/footer'

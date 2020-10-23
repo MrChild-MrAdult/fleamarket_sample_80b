@@ -1,0 +1,120 @@
+$color1:#3CCACE;
+$color2:#f8f8f8;
+
+ul.listsRight {
+  .listRight__mypage {
+    margin-right: 20px;
+    font-size: 16px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+main.l-container {
+  background-color: $color2;
+  width: 1020px;
+  height: 850px;
+  margin: 40px auto 0;
+  .l-content {
+    float: right;
+    width: 700px;
+    .mypage-user-icon {
+      width: 700px;
+      height: 200px;
+      text-align: center;
+      position: relative;
+      .user--info {
+      position: absolute;
+      top: 10%;
+      left: 35%;
+      display: block;
+      color: $color2;
+      text-decoration: none;
+      font-size: 22px;
+        figure {
+        overflow: hidden;
+        width: 100px;
+        height: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+        }
+        h2.bold {
+          margin-top: 20px;
+        }
+        ul.mypage-number {
+          display: flex;
+          justify-content: center;
+          li {
+            margin: 5px;
+          }
+        }
+      }
+    }
+    .users-detail-description_box {
+      margin-top: 20px;
+      width: 700px;
+      height: 250px;
+      p {
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        height: 200px;
+        border: 2px solid skyblue;
+      }
+      .user-profile {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 20px;
+        width: 100%;
+        .edit {
+          color: yellowgreen;
+          text-decoration: none;
+        }
+      }
+    }
+    h2.item-box-head {
+      margin-top: 10px;
+      font-size: 20px;
+      .item-box {
+        white-space: nowrap;
+        padding: 0 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        .productBox__List {
+          float: none;
+          display: inline-block;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+  .l-side {
+    width: 280px;
+    height: 800px;
+    float: left;
+    background-color: $color1;
+    li {
+      margin: 10px;
+      width: 250px;
+      height: 50px;
+      background-color: whitesmoke;
+      border: 1px solid $color2;
+      padding: 13px;
+      font-size: 18px;
+      position: relative;
+      a {
+        text-decoration: none;
+        display: block;
+        color: black;
+      }
+      .arrows-img {
+        position: absolute;
+        top: 15%;
+        left: 220px;
+        width: 17px;
+        height: 35px;
+      }
+    }
+  }
+}

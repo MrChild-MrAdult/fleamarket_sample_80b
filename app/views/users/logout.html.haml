@@ -1,0 +1,9 @@
+= render 'products/topHeader__inner'
+
+%main.l-container
+  .l-content
+    .logout-info 
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout"
+  = render partial: 'users/side'
+
+= render 'products/footer'
