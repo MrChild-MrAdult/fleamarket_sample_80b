@@ -4,12 +4,11 @@
   .l-content
     %section.mypage-user-icon
       = image_tag asset_path("orange.png", alt: "背景"), size: "50x200"
-      %a{:href => "#"}
+      .user--info
         %figure
           = image_tag asset_path("logo.png", alt: "仮画像"), size: "50x50" 
         %h2.bold 
           umi
-          -# = user.nickname
         %ul.mypage-number
           %li.evaluation 
             評価
@@ -22,15 +21,12 @@
     .users-detail-description_box
       %p.font2  
         %text_area 自己紹介文を記入しよう！
-        -# = user.introduction
       .user-profile
         = link_to "編集する", edit_user_path(current_user), class: "edit"
     %h2.item-box-head 
       この出品者の商品
       .items-box-content
         %section.item-box
-          -# - @products.each do |product|
-          -# = render partial: "#", locals: { product: product}
           .productBox__List
             = link_to root_path do
               %figure.productBox__img

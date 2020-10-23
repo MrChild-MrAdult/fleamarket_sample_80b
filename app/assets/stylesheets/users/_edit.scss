@@ -2,9 +2,6 @@ $color1:#3CCACE;
 $color2:#f8f8f8;
 
 ul.listsRight {
-  // .listsRight__user--img {
-  //   margin-right: 5px;
-  // }
   .listRight__mypage {
     margin-right: 20px;
     font-size: 16px;
@@ -25,10 +22,9 @@ main.l-container {
     .mypage-user-icon2 {
       width: 700px;
       height: 200px;
-      // background-color: aqua;
       text-align: center;
       position: relative;
-      a {
+      .user--info {
       position: absolute;
       top: 10%;
       left: 40%;

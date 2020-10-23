@@ -22,10 +22,9 @@ main.l-container {
     .mypage-user-icon {
       width: 700px;
       height: 200px;
-      // background-color: aqua;
       text-align: center;
       position: relative;
-      a {
+      .user--info {
       position: absolute;
       top: 10%;
       left: 35%;
@@ -86,10 +85,6 @@ main.l-container {
           float: none;
           display: inline-block;
           margin: 0 5px;
-          // float: left;
-          // display: block;
-          // width: 200px;
-          // margin: 0 0 20px 20px;
         }
       }
     }
