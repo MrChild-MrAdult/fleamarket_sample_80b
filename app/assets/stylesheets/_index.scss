@@ -1,6 +1,9 @@
+$color1: #F5F5F5;
+
+
 .container{
   padding: 0 0 220px;
-  background-color: #F5F5F5;
+  background-color: $color1;
 }
 
 .header{
@@ -27,15 +30,14 @@
 }
 
 .contents__box{
-  width: 700px;
-  height: 530px;
+  width: 452px;
   margin: 0 auto;
   background-color: #fff;
 }
 
 .contents__message{
-  font-size: 22px;
-  padding: 32px;
+  font-size: 14px;
+  padding: 45px;
 }
 
 .btn-default{
@@ -47,16 +49,8 @@
   border: 1px solid transparent;
 }
 
-.btn-mail{
-  color: #fff;
-  background-color: #ea352d;
-  position: relative;
-  margin-top: 25px;
-  text-decoration: none
-}
-
 .btn-sns-google{
-  margin: 16px 0 0;
+  margin: 47px 0 0;
   background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
   border: #979797 solid 1px;
   color: #333;
@@ -102,4 +96,36 @@
 
 .icon-mail{
   line-height: 50px;
+}
+
+.login-form-inner{
+  width: 452px;
+  height: 810px;
+}
+
+.input-default{
+  width: 335px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.login-input-text{
+  margin: 58px 0 0 0;
+}
+
+.login-input-pass{
+  margin: 16px 0 0 0;
+}
+
+.login-submit{
+  margin: 24px 0 0;
+}
+
+.btn-red{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
 }
