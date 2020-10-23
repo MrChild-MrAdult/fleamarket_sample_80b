@@ -1,0 +1,19 @@
+= render 'products/topHeader__inner'
+
+%main.l-container
+  .l-content
+    %section.mypage-user-icon2
+      = image_tag asset_path("orange.png", alt: "背景"), size: "50x200"
+      %a{:href => "#"}
+        %figure
+          = image_tag asset_path("logo.png", alt: "仮画像"), size: "50x50" 
+        %h2.bold umi
+    .users-detail-description_form
+      = form_with model: @user, html: {class: "form_box"}, local: true do |f|
+        %p.font2  
+          = f.text_area :introduction, class: "introduction", placeholder: "自己紹介文を変更する" 
+        .form_submit
+          = f.submit '変更する', class: "submit"
+  = render partial: 'side'
+        
+= render 'products/footer'
