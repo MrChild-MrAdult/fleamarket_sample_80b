@@ -1,6 +1,8 @@
 @import "reset";
-@import "style";
-@import "products";
+@import "products/index";
+@import "products/search";
+@import "products/show";
+@import "products/check";
 @import "credit_cards";
 @import "users/show";
 @import "users/edit";

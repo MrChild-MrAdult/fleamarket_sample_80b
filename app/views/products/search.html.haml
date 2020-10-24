@@ -1,0 +1,122 @@
+= render 'topHeader__inner'
+
+.body
+  .search
+    .search-sort
+      .search-sort__text 並び替え
+      .search-sort__allow.fas.fa-angle-down
+    
+    .search-detail
+      .search-detail__title 詳細検索
+
+
+      .search-detail__keyword
+        .keyword-icon.fas.fa-plus
+        .keyword-text キーワードを追加する
+      %input.search-detail__keyword--input{placeholder: "例）値下げ"}
+
+
+      .search-detail__category
+        .category-icon.fas.fa-bars
+        .category-text カテゴリーを選択する
+      .search-detail__category-box
+        .search-detail__category-box--select すべて
+        .search-detail__category-box--allow.fas.fa-angle-down
+
+
+      .search-detail__brand
+        .brand-icon.fas.fa-tag
+        .brand-text ブランド名から探す
+      %input.search-detail__brand--input{placeholder: "例）シャネル"}
+
+
+      .search-detail__size
+        .size-icon.fas.fa-expand
+        .size-text サイズを指定する
+      .search-detail__size-box
+        .search-detail__size-box--select すべて
+        .search-detail__size-box--allow.fas.fa-angle-down
+
+
+      .search-detail__price
+        .price-icon.fas.fa-coins
+        .price-text 価格
+      .search-detail__price-box
+        .search-detail__price-box--select 選択してください
+        .search-detail__price-box--allow.fas.fa-angle-down
+      .search-detail__price-input
+        %input.search-detail__price-input--min{placeholder: "¥ Min"}
+        .search-detail__price-input--middle ~
+        %input.search-detail__price-input--max{placeholder: "¥ Max"}
+
+
+      .search-detail__condition
+        .condition-icon.fas.fa-star
+        .condition-text 商品の状態
+      .search-detail__condition-box
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text すべて
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text 新品、未使用
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text 未使用に近い
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text 目立った傷や汚れなし
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text やや傷や汚れあり
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text 傷や汚れあり
+        .condition-select
+          .condition-select__checkbox ■
+          .condition-select__text 全体的に状態が悪い
+
+
+      .search-detail__delivery
+        .delivery-icon.fas.fa-truck
+        .delivery-text 配送料の負担
+      .search-detail__delivery-box
+        .delivery-select
+          .delivery-select__checkbox ■
+          .delivery-select__text すべて
+        .delivery-select
+          .delivery-select__checkbox ■
+          .delivery-select__text 着払い(購入者負担)
+        .delivery-select
+          .delivery-select__checkbox ■
+          .delivery-select__text 送料込み(出品者負担)
+
+
+      .search-detail__status
+        .status-icon.fas.fa-shopping-cart
+        .status-text 販売状況
+      .search-detail__status-box
+        .status-select
+          .status-select__checkbox ■
+          .status-select__text すべて
+        .status-select
+          .status-select__checkbox ■
+          .status-select__text 販売中
+        .status-select
+          .status-select__checkbox ■
+          .status-select__text 売り切れ
+
+
+      .search-detail__btn
+        .search-detail__btn--clear クリア
+        .search-detail__btn--enter 完了
+
+
+
+  .results
+    .titlebox
+      .titlebox__keyword プログラミング
+      .titlebox__subtext の検索結果
+
+
+= render 'footer'
