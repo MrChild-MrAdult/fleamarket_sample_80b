@@ -1,0 +1,75 @@
+.mainHeader
+  %h1.icon2
+    = link_to root_path do
+      = image_tag "/assets/logo.png"
+ 
+.product__content
+  = form_with model: @product, html: {class: "form_box"}, local: true do |f|
+    .product--img
+      %label 出品画像
+      %span 必須
+      .product__box--img
+        = f.label :image, class: 'form__image' do
+          .form__image
+            クリックして画像をアップロード
+            = f.file_field :image, class: "file--img"
+    .product--info
+      .product--name
+        %label 商品名
+        %span 必須
+        .product__box
+          = f.text_field :name, class: "product", placeholder: "40字まで"
+      .prodcut--description
+        %label 商品の説明
+        %span 必須
+        .product__box
+          = f.text_area :description, class: "description", placeholder: "商品の説明（色、素材、重さ、定価、注意点など）"
+    .product--show 
+      商品の詳細
+      .category__box
+        %label カテゴリー
+        %span 必須
+        .product__box
+          = f.select :category, [["選択してください", 0],["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物", 4],["本・音楽・ゲーム", 5],["おもちゃ・ホビー・グッズ", 6],["コスメ・香水・美容", 7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー", 9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他", 13]], {}, class: "product"
+      .brand__box
+        %label ブランド (任意)
+        .product__box
+          = f.text_field :brand, class: "product"
+      .product--status
+        %label 商品の状態
+        %span 必須
+        .product__box
+          = f.select :status, [["選択してください", 0],["新品・未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {}, class: "product"
+      .product--size
+        %label 商品のサイズ
+        %span 必須
+        .product__box
+          = f.select :category, [["選択してください", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "product"
+    .delivery
+      配送について
+      .product--destination
+        %label 発送元
+        %span 必須
+        .product__box
+          = f.text_field :prefecture, class: "product"
+      .product--delivery_day
+        %label 発送までの日数
+        %span 必須
+        .product__box
+          = f.select :delivery_day, [["選択してください", 0],["1〜2日以内", 1],["2〜3日以内", 2],["4〜7日以内",3]], {}, class: "product"
+      .product--cost
+        %label 配送料
+        %span 必須
+        .product__box
+          = f.text_field :cost, class: "product"
+    .price
+      価格について
+      .product--price
+        %label 販売価格
+        %span 必須
+        .product__box
+          = f.text_field :price, class: "product"
+    .form_submit
+      = f.submit '出品する', class: "submit"
+​
+= render 'footer'
