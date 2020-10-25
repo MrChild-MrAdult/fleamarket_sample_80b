@@ -4,13 +4,18 @@ $width1: 700px;
 $furima-color: #3CCACE;
 
 
-.body {
+.products-search__body {
   width: 100vw;
   line-height: 100%;
   padding: 50px 0;
   background-color: $color1;
   display: flex;
   justify-content: center;
+
+
+  // ##########################################
+  // 検索サイドバー
+  // ##########################################
   .search {
     width: 280px;
     margin: 20px 45px 50px 0;
@@ -317,6 +322,10 @@ $furima-color: #3CCACE;
     }
   }
 
+  // ##########################################
+  // 検索結果（商品一覧）
+  // ##########################################
+
   .results {
     width: 700px;
     margin: 30px 0;
@@ -331,6 +340,54 @@ $furima-color: #3CCACE;
       }
       &__subtext {
         margin-left: 5px;
+      }
+    }
+
+
+    .counts {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(164, 162, 162, 0.8);
+    }
+
+
+    // -----------------------------------------
+    // 商品内容
+    // -----------------------------------------
+    .items-lists {
+      width: 700px;
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      .item-detail {
+        margin: 0 20px 20px 0;
+        width: 160px;
+        background-color: #fff;
+        &:nth-of-type(4n) {
+          margin-right: 0;
+        }
+        .item__img {
+          width: 160px;
+          height: 160px;
+        }
+        .item__content {
+          padding: 10px;
+          align-items: center;
+          .item__price-like {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            .item-like {
+              display: flex;
+              &__icon {
+                margin-right: 5px;
+              }
+            }
+          }
+          .item__tax {
+            font-size: 12px;
+          }
+        }
       }
     }
   }
