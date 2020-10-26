@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       get :check
     end
   end
+  resources :users, only: [:show, :edit]
+  resources :credit_cards, only: [:new]
 end
