@@ -1,130 +1,138 @@
-$color1: #F5F5F5;
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
 
-
-.container{
+.single-container {
   padding: 0 0 220px;
-  background-color: $color1;
 }
 
-.header{
-  width: 870;
-  height: 127px;
+.single-header {
+  height: 128px;
   text-align: center;
-  background-color: #F5F5F5;
 }
 
-.fieldset,img{
+.single-header h1 {
+  margin: 40px 0 0;
+  display: inline-block;
+}
+
+.single-header a {
   width: 185px;
   height: 49px;
-  margin: 40px 0 0 ;
+  line-height: 49px;
+  display: inline-block;
+  margin: 0 8px 0 0;
 }
 
-.contents{
-  text-align: center;
-  &__btn{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid #f5f5f5;
-  }
-}
-
-.contents__box{
-  width: 452px;
+.login-panel {
+  max-width: none;
+  width: 456px;
   margin: 0 auto;
-  background-color: #fff;
+  background: #fff;
 }
 
-.contents__message{
+.login-no-account {
+  padding: 40px 64px;
+  text-align: center;
+}
+
+.login-no-account p {
   font-size: 14px;
-  padding: 45px;
 }
 
-.btn-default{
-  margin: 16px 0 0 ;
-  background-color: #fff;
-  width: 350px;
-  height: 50px;
-  border-radius: 5px;
+.login-no-account a {
+  display: block;
+  margin: 8px 0 0;
+  border-radius: 4px;
+  border: 1px solid #0099e8;
+  background: #0099e8;
+  color: #fff;
+  line-height: 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.login-form-inner {
+  padding: 32px 64px;
+  border-top: 1px solid #eee;
+}
+
+.btn-sns {
+  position: relative;
+  border-radius: 4px;
+}
+
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
   border: 1px solid transparent;
 }
 
-.btn-sns-google{
-  margin: 47px 0 0;
+.btn-sns-google {
+  margin: 16px 0 0;
   background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
   border: #979797 solid 1px;
   color: #333;
-  position: relative;
-  .fa-google {
-    position: absolute;
-    left: 15px;
-    font-size: 20px;
-  }
 }
 
-.btn-sns-facebook{
+.btn-sns-facebook {
   margin: 16px 0 0;
   background: #385185;
   color: #fff;
-  position: relative;
-  .fa-facebook-square{
-    position: absolute;
-    left: 15px;
-    font-size: 20px;
-  }
 }
 
 .btn-sns-apple {
   margin: 15px 0 0;
   background: #000;
   color: #fff;
-  position: relative;
-  .fa-apple{
-    position: absolute;
-    font-size: 20px;
-    left: 15px;
-  }
 }
 
-.form-info-text{
-  margin: 40px 0 0;
-  color: #888;
-  width: 345px;
-  font-size: 14px;
-  text-align: justify;
+.login-form-inner:first-child {
+  padding: 24px 64px 32px;
+  border: 0;
 }
 
-.icon-mail{
-  line-height: 50px;
+.login-form-inner .input-default {
+  margin: 0;
 }
 
-.login-form-inner{
-  width: 452px;
-  height: 810px;
+.form-group .input-default {
+  width: 90%;
+  height: 35px;
 }
 
-.input-default{
-  width: 335px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid #cccccc;
-  font-size: 14px;
-  padding-left: 15px;
-}
-
-.login-input-text{
-  margin: 58px 0 0 0;
-}
-
-.login-input-pass{
-  margin: 16px 0 0 0;
-}
-
-.login-submit{
+.login-form-inner .form-group {
   margin: 24px 0 0;
 }
 
-.btn-red{
+.input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.login-submit {
+  margin: 24px 0 0;
+}
+
+.btn-red {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
