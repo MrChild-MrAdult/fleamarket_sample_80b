@@ -23,4 +23,7 @@ class ProductsController < ApplicationController
   def check
   end
 
+  def search
+  end
+
 end
