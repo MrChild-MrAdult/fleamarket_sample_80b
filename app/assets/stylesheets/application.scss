@@ -1,10 +1,16 @@
 @import "reset";
-@import "style";
-@import "products";
+
+@import "products/index";
+@import "products/show";
+@import "products/search";
+@import "products/new";
+@import "products/check";
+
 @import "credit_cards";
+
+
 @import "users/show";
 @import "users/edit";
 @import "users/logout";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "_new";
