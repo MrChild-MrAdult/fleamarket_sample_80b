@@ -1,0 +1,118 @@
+
+$color1:#3CCACE;
+$color2:#f8f8f8;
+​
+.mainHeader {
+  align-items: center;
+}
+.icon2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 170px;
+  border-radius: 4px;
+}
+.product__content {
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $color1;
+  width: 60vw;
+  height: 1550px;
+  padding: 20px;
+  color:$color2;
+  span {
+    color: white;
+    background-color: red;
+    font-size: 12px;
+    padding: 2px;
+  }
+  .product {
+    width: 56vw;
+    height: 30px;
+    border: 1px solid lightgray;
+  }
+  .product--img{
+    height: 300px;
+    border-bottom: 2px solid whitesmoke;
+    .product__box--img {
+      margin-left: auto;
+      margin-right: auto;
+      width: 400px;
+      height: 230px;
+      border: 2px dotted cornflowerblue;
+      background-color: $color2;
+      margin-top: 20px;
+      .form__image {
+        width: 400px;
+        height: 230px;
+        color:gray;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 70px;
+        .file--img {
+          display: none;
+        }
+      }
+    }
+  }
+  .product--info {
+    margin: 20px 0;
+    background-color: $color1;
+    border-bottom: 2px solid whitesmoke;
+    .product--name {
+      margin: 10px 0;
+    }
+    .description {
+      margin-bottom: 20px;
+      width: 56vw;
+      height: 200px;
+      border: 1px solid lightgray;
+    }
+  }
+  .product--show {
+    margin: 20px 0;
+    border-bottom: 2px solid whitesmoke;
+    .category__box {
+      margin: 20px 0;
+    }
+    .brand__box {
+      margin: 20px 0;
+    }
+    .product--status {
+      margin: 20px 0;
+    }
+    .product--size {
+      margin: 20px 0;
+    }
+  }
+  .delivery {
+    margin: 20px 0;
+    border-bottom: 2px solid whitesmoke;
+    .product--destination {
+      margin: 20px 0;
+    }
+    .product--cost {
+      margin: 20px 0;
+    }
+  }
+  .price {
+    margin: 20px 0;
+    border-bottom: 2px solid whitesmoke;
+    .product--price {
+      margin: 20px 0;
+    }
+  }
+  .form_submit {
+    text-align: center;
+    .submit {
+      margin-top: 15px;
+      width: 300px;
+      height: 50px;
+      border: none;
+      background-color: lightcoral;
+      color: $color2;
+    }
+  }
+}
