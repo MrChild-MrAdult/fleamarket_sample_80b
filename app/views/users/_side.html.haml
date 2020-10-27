@@ -1,20 +1,32 @@
+
 .l-side
   %ul
     %li
-      = link_to "マイページ", user_path(current_user)
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      //= link_to "マイページ", user_path(current_user)
+      //= image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      = link_to "マイページ"
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      .arrows-img.fas.fa-angle-down
     %li
-      = link_to "プロフィール編集", edit_user_path(current_user)
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      //= link_to "プロフィール編集", edit_user_path(current_user)
+      = link_to "プロフィール編集"
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      .arrows-img.fas.fa-angle-down
     %li
-      = link_to "クレジットカード登録", new_credit_card_path
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      -# = link_to "クレジットカード登録", new_credit_card_path
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      = link_to "クレジットカード登録"
+      .arrows-img.fas.fa-angle-down
     %li
       = link_to "住所変更"
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      .arrows-img.fas.fa-angle-down
     %li
       = link_to "本人情報"
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      .arrows-img.fas.fa-angle-down
     %li.logout
-      = link_to "ログアウト", logout_path
-      = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      -# = link_to "ログアウト", logout_path
+      -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
+      = link_to "ログアウト"
+      .arrows-img.fas.fa-angle-down

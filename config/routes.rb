@@ -7,6 +7,12 @@ Rails.application.routes.draw do
       get :check
     end
   end
-  resources :users, only: [:show, :edit]
+  
+  resources :users, only: [:show, :edit] do
+    collection do
+      get :logout
+    end
+  end
+
   resources :credit_cards, only: [:new]
 end

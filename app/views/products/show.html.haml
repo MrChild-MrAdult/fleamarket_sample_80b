@@ -1,7 +1,7 @@
 
 = render 'topHeader__inner'
 
-.body
+.products-show__body
   .product-box
     .product-box__title product
     .product-box__imgs
@@ -56,11 +56,11 @@
         %td 1~2日で発送
     .product-box__sub
       .like-btn
-        .like-btn__icon ★
+        .like-btn__icon.fa.fa-star.likeIcon
         .like-btn__text お気に入り
         .like-btn__num 1
       .report-btn
-        .repot-btn__icon 🏴
+        .repot-btn__icon.fas.fa-flag
         .report-btn__text 不適切な商品の通報
   .comments-list
     .comment-box
@@ -95,7 +95,7 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon ★
+              .other-like__icon.fa.fa-star.likeIcon
               .other-like__num 4
           .other__tax (税込)
     .others__list
@@ -106,7 +106,7 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon ★
+              .other-like__icon.fa.fa-star.likeIcon
               .other-like__num 4
           .other__tax (税込)
     .others__list
@@ -117,8 +117,9 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon ★
+              .other-like__icon.fa.fa-star.likeIcon
               .other-like__num 4
           .other__tax (税込)
 
 = render 'footer'
+

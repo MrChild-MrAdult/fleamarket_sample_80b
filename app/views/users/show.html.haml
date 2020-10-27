@@ -1,3 +1,4 @@
+
 = render 'products/topHeader__inner'
 
 %main.l-container
@@ -22,7 +23,8 @@
       %p.font2  
         %text_area 自己紹介文を記入しよう！
       .user-profile
-        = link_to "編集する", edit_user_path(current_user), class: "edit"
+        //= link_to "編集する", edit_user_path(current_user), class: "edit"
+        = link_to "編集する", class: "edit"
     %h2.item-box-head 
       この出品者の商品
       .items-box-content
