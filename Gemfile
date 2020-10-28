@@ -74,3 +74,6 @@ gem "haml-rails"
 
 # 2020.10.15追加
 gem 'font-awesome-sass'
+
+# 2020.10.28追加
+gem 'devise'
