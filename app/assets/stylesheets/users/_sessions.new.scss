@@ -1,0 +1,114 @@
+.sessions-new{
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  text-align: center;
+  a{
+  }
+  &__wrapper{
+    width: 456px;
+    height: auto;
+    background-color:white;
+    margin-right: auto;
+    margin-left: auto;
+    height: 700px;
+    &__registrations{
+      width: 85%;
+      height: 85px;
+      padding-top: 24px;
+      padding: 24px, 32px;
+      border-bottom: solid 1px;
+      border-color: gainsboro;
+      text-align: center;
+      margin: auto;
+      &__nav{
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      &__button{
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        border: none;
+        height: 42px;
+        a{
+          display: inline-block;
+          text-decoration: none;
+          width: 100%;
+          height: 100%;
+          line-height: 40px;
+          color: white;
+        }
+      }
+    }
+    &__form{
+      .field{
+        width: 90%;
+        margin: auto;
+      }
+      label{
+        display: none;
+      }
+      input{
+        width: 85%;
+        height: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        /* padding: 9px; */
+        padding: 9px 16px 9px 16px;
+        display: block;
+      }
+      #user_remember_me{
+        display: none;
+      }
+      .actions--red{
+        margin-top: 24px;
+        padding-bottom: 24px;
+        height: 42px;
+        input{
+          background-color: #3CCACE;
+          border: none;
+          color: white;
+          cursor: pointer;
+          width: 85%;
+        }
+      }
+    }
+  }
+}
+
+.btn-sns {
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn-default {
+  display: block;
+  width: 346px;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.btn-sns-google {
+  margin: 50px;
+  background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+  border: #979797 solid 1px;
+  color: #333;
+}
+
+.btn-sns-facebook {
+  margin: 50px;
+  background: #385185;
+  color: #fff;
+}
+
+.btn-sns-apple {
+  margin: 50px;
+  background: #000;
+  color: #fff;
+}

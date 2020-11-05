@@ -1,0 +1,43 @@
+.sessions-new
+  = link_to root_path do
+    = image_tag asset_path("logo.png"), class:"aaa"
+  .sessions-new__wrapper
+    .sessions-new__wrapper__registrations
+      .sessions-new__wrapper__registrations__nav
+        アカウントをお持ちでない方はこちら
+      .sessions-new__wrapper__registrations__button
+        = link_to "新規会員登録", new_user_registration_path
+
+    .login-form-inner
+      %button#google-login.btn-default.btn-sns.btn-sns-google
+        Googleでログイン
+      %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+        %i.icon-facebook
+        Facebookでログイン
+      %button#apple-login.btn-default.btn-sns.btn-sns-apple
+        %i.icon-apple
+        Appleでログイン
+
+
+    .sessions-new__wrapper__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス'
+        .field
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード'
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .actions--red
+          = f.submit "ログイン"
+    -# .sessions-new__wrapper__passwordreminder
+    -#   パスワードをお忘れの方
+  = render "devise/shared/links"
+.end
+          
+  
