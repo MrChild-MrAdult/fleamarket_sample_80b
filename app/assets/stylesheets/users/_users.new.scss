@@ -5,8 +5,6 @@
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  a{
-  }
   &__wrapper{
     width: 700px;
     height: auto;
@@ -24,10 +22,6 @@
     &__form{
       #error_explanation{
         margin-bottom: 10px;
-        ul{
-          li{
-          }
-        }
       }
       &__set{
         font-size: 14px;
@@ -36,8 +30,6 @@
         margin-right: auto;
         margin-left: auto;
         margin-top: 20px;
-        &__name-desc{
-        }
         &__fullname{
           display: flex;
           justify-content: space-between;
@@ -57,8 +49,6 @@
               width: 165px;
             }
           }
-        }
-        &__ruby-name-desc{
         }
         &__ruby-fullname{
           display: flex;
