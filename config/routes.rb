@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit] do
     collection do
       get :logout
+      get :personal_edit
     end
   end
 
