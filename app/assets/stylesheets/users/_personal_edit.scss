@@ -1,0 +1,76 @@
+.l-container2 {
+  width: 60vw;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 40px;
+}
+
+.l-chapter {
+  background-color: #3CCACE;
+  &__head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+  }
+}
+
+.l-single-inner {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+}
+
+.l-single-inner p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin: 40px 0 0;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-arbitrary {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background-color: red;
+}
+
+.input-default {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.select-wrap {
+  margin: 8px 0 0;
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  &__default {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+}
+
+.btn-default {
+  width: 300px;
+  border-radius: 4px;
+  background-color: lightcoral;
+  color: #fff;
+  margin: 60px auto 0 auto;
+}
