@@ -6,10 +6,9 @@ class ProductsController < ApplicationController
   end
 
   def show 
-    @category_id = @product.category_id
-    @parent = Category.find(@category_id).parent.parent
-    @child = Category.find(@category_id).parent
-    @grandchild = Category.find(@category_id)
+    @grandchild = @product.category_id
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def new

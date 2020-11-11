@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @products = @category.set_products
     @products = @products.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
   end
 
