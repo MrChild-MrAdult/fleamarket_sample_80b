@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get :search
       get :pay
       get :check
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   
@@ -24,4 +26,8 @@ Rails.application.routes.draw do
   end
 
   resources :credit_cards, only: [:new]
+
+  resources :categories, only: [:index, :show]
+
+  resources :brands, only: :index
 end

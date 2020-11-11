@@ -1,0 +1,93 @@
+$color1:#3CCACE;
+$color2:#f8f8f8;
+
+.category__main {
+  background-color: $color2;
+  .showMain {
+    padding: 40px;
+    margin: 0 auto;
+    h1 {
+      width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .category__contents {
+      margin-left: auto;
+      margin-right: auto;
+      width: 700px;
+      .index__box {
+        height: 300px;
+        padding: 16px 8px;
+        .indexTitle {
+          min-width: 80px;
+          float: left;
+          line-height: 40px;
+          text-decoration: none;
+          box-shadow: 0 0 5px rgba(0,0,0,0.4);
+          padding: 0 30px;
+          color: black;
+          margin: 5px;
+          border-radius: 4px;
+          background-color: #fff;
+        }
+      }
+      .title__box {
+        border-radius: 5px;
+        .catTitle {
+          text-decoration: none;
+          display: block;
+          border-radius: 5px 5px 0 0;
+          padding: 16px 10px 8px;
+          background-color: $color1;
+          color: #fff;
+          text-align: left;
+          font-weight: bold;
+          font-size: 22px;
+        }
+        .catContents {
+          background-color: #fff;
+          padding: 16px;
+          margin-bottom: 20px;
+          border-radius: 5px 5px 0 0;
+          .catContent {
+            margin-bottom: 10px;
+            .contentTitle {
+              display: block;
+              color: #333;
+              font-weight: bold;
+              font-size: 16px;
+              text-decoration: none;
+            }
+          }
+          .catItems {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            .catItem {
+              margin: 8px 0;
+              width: 50%;
+              box-sizing: border-box;
+              .itemTitle {
+                color: #ffb340;
+                text-decoration: none;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .TopBtn {
+          padding: 10px;
+          .TopPage {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

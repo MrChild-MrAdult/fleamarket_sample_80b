@@ -16,39 +16,16 @@
 .nav
   %ul.listsLeft
     %li.listsLeft__item.listsLeft__item--first
-      = link_to root_path class:"catBtn" do
-        カテゴリー
+      = image_tag asset_path("icon_category.png"), class:"nav_img", size: "18×18" 
+      = link_to "カテゴリーから探す", categories_path, class:"catBtn" , id: "catroy_top_title" 
       .tree.displayNone
         %ul.categoryTree
-          %li.categoryTree--item
-            = link_to root_path, "レディース"
-          %li.categoryTree--item
-            = link_to root_path, "メンズ"
-          %li.categoryTree--item
-            = link_to root_path, "ベビー・キッズ"
-          %li.categoryTree--item
-            = link_to root_path, "インテリア・住まい・小物"
-          %li.categoryTree--item
-            = link_to root_path, "本・音楽・ゲーム"
-          %li.categoryTree--item
-            = link_to root_path, "おもちゃ・ホビー・グッズ"
-          %li.categoryTree--item
-            = link_to root_path, "コスメ・香水・美容"
-          %li.categoryTree--item
-            = link_to root_path, "家電・スマホ・カメラ"
-          %li.categoryTree--item
-            = link_to root_path, "スポーツ・レジャー"
-          %li.categoryTree--item
-            = link_to root_path, "ハンドメイド"
-          %li.categoryTree--item
-            = link_to root_path, "チケット"
-          %li.categoryTree--item
-            = link_to root_path, "自動車・オートバイ"
-          %li.categoryTree--item
-            = link_to root_path, "その他"
+          - @parents.each do |parent|
+            %li.categoryTree--item
+              = link_to "#{parent.name}", "#", class: "parent_category" #id: "#{parent.id}"
     %li.listsLeft__item
-      = link_to root_path class: "brandBtn" do
-        ブランド
+      = image_tag asset_path("icon_brand.png"), class:"nav_img", size: "18×18" 
+      = link_to "ブランドから探す", brands_path, class: "brandBtn" 
       %ul.brandsPulldown.displayNone
   %ul.listsRight
     - if user_signed_in?

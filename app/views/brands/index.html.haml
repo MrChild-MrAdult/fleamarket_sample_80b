@@ -1,0 +1,36 @@
+= render 'products/topHeader__inner'
+
+.category__main
+  .showMain
+    %h1 ブランド一覧
+    .category__contents
+      .index__box
+        .catIndex
+          = link_to "レディース", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "メンズ", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "ベビー・キッズ", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "インテリア・住まい・小物", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "本・音楽・ゲーム", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "おもちゃ・ホビー・グッズ", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "コスメ・香水・美容", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "家電・スマホ・カメラ", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "スポーツ・レジャー", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "ハンドメイド", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "チケット", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "自動車・オートバイ", root_path, class: "indexTitle"
+        .catIndex
+          = link_to "その他", root_path, class: "indexTitle"
+  .brand__contents
+
+= render 'products/footer'

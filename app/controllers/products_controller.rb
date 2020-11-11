@@ -1,8 +1,15 @@
 class ProductsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
+  
   def index
+    @products = Product.includes(:images).order('created_at DESC')
   end
 
   def show 
+    @category_id = @product.category_id
+    @parent = Category.find(@category_id).parent.parent
+    @child = Category.find(@category_id).parent
+    @grandchild = Category.find(@category_id)
   end
 
   def new
@@ -24,6 +31,32 @@ class ProductsController < ApplicationController
   end
 
   def search
+  end
+
+  def get_category_children
+    respond_to do |format| 
+      format.html
+      format.json do
+        @category_children = Category.find("#{params[:parent_id]}").children
+      end
+    end
+  end
+  
+  def get_category_grandchildren
+    respond_to do |format| 
+      format.html
+      format.json do
+        @category_grandchildren = Category.find("#{params[:child_id]}").children
+      end
+    end
+  end
+
+  private
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end

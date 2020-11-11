@@ -77,3 +77,7 @@ gem 'font-awesome-sass'
 
 # 2020.10.28追加
 gem 'devise'
+
+# 2020.11.10追加
+gem 'ancestry'
+gem 'jquery-rails'
