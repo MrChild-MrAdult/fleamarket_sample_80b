@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show 
-    @grandchild = @product.category_id
+    @grandchild = @product.category
     @child = @grandchild.parent
     @parent = @child.parent
   end
