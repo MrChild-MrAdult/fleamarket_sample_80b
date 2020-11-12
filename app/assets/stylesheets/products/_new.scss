@@ -1,10 +1,10 @@
-
 $color1:#3CCACE;
 $color2:#f8f8f8;
 ​
 .mainHeader {
   align-items: center;
 }
+
 .icon2 {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -13,13 +13,13 @@ $color2:#f8f8f8;
   width: 170px;
   border-radius: 4px;
 }
+
 .product__content {
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   background-color: $color1;
-  width: 60vw;
-  height: 1550px;
+  width: 65vw;
   padding: 20px;
   color:$color2;
   span {
@@ -29,31 +29,52 @@ $color2:#f8f8f8;
     padding: 2px;
   }
   .product {
-    width: 56vw;
+    width: 58vw;
     height: 30px;
     border: 1px solid lightgray;
+    border-radius: 4px;
+    margin-bottom: 10px;
   }
   .product--img{
-    height: 300px;
+    height: 225px;
     border-bottom: 2px solid whitesmoke;
     .product__box--img {
       margin-left: auto;
       margin-right: auto;
-      width: 400px;
-      height: 230px;
+      border-radius: 4px;
+      display: flex;
+      overflow: hidden;
+      width: 500px;
+      height: 150px;
       border: 2px dotted cornflowerblue;
       background-color: $color2;
       margin-top: 20px;
+      #previews{
+        display: flex;
+        .preview{
+          width: 100px;
+          height: 150px;
+          background-color: white;
+          color: gray;
+          text-align: center;
+        }
+      }
+      .img--icon {
+        position: absolute;
+        top: 50px;
+        left: 225px;
+      }
+      .js-file {
+        display: none;
+      }
       .form__image {
-        width: 400px;
-        height: 230px;
+        width: 100%;
+        height: 100%;
         color:gray;
         font-weight: bold;
         text-align: center;
         padding-top: 70px;
-        .file--img {
-          display: none;
-        }
+        position: relative;
       }
     }
   }
@@ -66,7 +87,8 @@ $color2:#f8f8f8;
     }
     .description {
       margin-bottom: 20px;
-      width: 56vw;
+      border-radius: 4px;
+      width: 58vw;
       height: 200px;
       border: 1px solid lightgray;
     }
@@ -94,7 +116,7 @@ $color2:#f8f8f8;
       margin: 20px 0;
     }
     .product--cost {
-      margin: 20px 0;
+      margin: 20px 0px;
     }
   }
   .price {
@@ -103,6 +125,12 @@ $color2:#f8f8f8;
     .product--price {
       margin: 20px 0;
     }
+  }
+  .product__momey {
+    display: flex;
+  }
+  .product__unit {
+    margin-left: 5px;
   }
   .form_submit {
     text-align: center;
@@ -116,3 +144,4 @@ $color2:#f8f8f8;
     }
   }
 }
+

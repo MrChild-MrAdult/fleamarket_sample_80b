@@ -119,14 +119,13 @@ img {
     background-position: center right;
     background-repeat: no-repeat;
     background-size: 18px;
-    padding-right: 30px;
+    padding-right: 10px;
   }
-  &__item--first>a {
-    background-image: url(icon_category.png);
+  .nav_img {
+    width: 18px;
+    height: 18px;
+    margin: 7px 2px 0 10px;
   }
-  &__item:nth-child(2) > a {
-    background-image: url(icon_brand.png);
-}
 }
 
 .categoryTree {

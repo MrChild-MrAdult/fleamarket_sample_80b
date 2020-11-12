@@ -1,0 +1,16 @@
+$color1:#3CCACE;
+$color2:#f8f8f8;
+
+.Notification {
+  .notice {
+    background-color: $color1;
+    color: #fff;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: lightcoral;
+    color: #fff;
+    text-align: center;
+  }
+}

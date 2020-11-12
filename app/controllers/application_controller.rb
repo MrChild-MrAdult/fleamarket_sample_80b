@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_parents
+  
   private
 
   def basic_auth
@@ -16,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :password, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day, :user_img, :introduction])
+  end
+
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
 end

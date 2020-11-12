@@ -6,6 +6,7 @@
 @import "products/new";
 @import "products/check";
 @import "products/edit";
+@import "products/flash";
 
 @import "credit_cards";
 
@@ -17,6 +18,9 @@
 @import "users/sessions.new";
 @import "users/users.complete";
 @import "users/personal_edit";
+
+@import "categories";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 

@@ -1,0 +1,25 @@
+= render 'products/topHeader__inner'
+
+.category__main
+  .showMain
+    %h1 カテゴリー一覧
+    .category__contents
+      .index__box
+        - @parents.each do |parent|
+          .catIndex
+            = link_to "#{parent.name}", root_path, class: "indexTitle"
+      .title__box
+        - @parents.each do |parent|
+          = link_to "#{parent.name}", "#", class: "catTitle"
+          %ul.catContents
+            - parent.children.each do |child|
+              %li.catContent
+                = link_to "#{child.name}", "#", class: "contentTitle"
+              %ul.catItems
+                - child.children.each do |grandchild|
+                  %li.catItem
+                    = link_to "#{grandchild.name}", "#", class: "itemTitle"
+            .TopBtn
+              = link_to "ページトップへ", "#", class: "TopPage"
+
+= render 'products/footer'
