@@ -12,9 +12,9 @@
     margin-left: auto;
     background-color: white;
     &__nav{
-      font-size: 18px;
+      font-size: 20px;
       text-align: center;
-      padding: 16px;
+      padding: 30px;
       font-weight: bold;
       border-bottom: solid 1px;
       border-color: whitesmoke;
@@ -40,6 +40,7 @@
           margin-left: auto;
           margin-right: auto;
           display: block;
+          padding-left: 10px;
         }
         span{
           background-color: red;
@@ -55,16 +56,19 @@
         &__nickname{
           input{
             width: 100%;
+            padding: 10px;
           }
         }
         &__email{
           input{
             width: 100%;
+            padding: 10px;
           }
         }
         &__password{
           input{
             width: 100%;
+            padding: 10px;
           }
           #user_password{
             margin-bottom:1px;
@@ -78,6 +82,7 @@
         &__passwordconfirmation{
           input{
             width: 100%;
+            padding: 10px;
           }
         }
         &__desc-safety{
@@ -111,7 +116,6 @@
           align-items: center;
 
           .birthdate_field{
-            display: flex;
             width: 100%;
             .field_with_errors{
               display: contents;
@@ -174,6 +178,17 @@ input, textarea, select {
 
 .fleamaeket_log{
   width: 180px;
-  height: 40px;
+  padding-right: 25px;
   margin-bottom: 20px;
+}
+
+p{
+  margin-right: 60px;
+}
+
+.registrations-new__wrapper__form__set__name__first-name{
+  margin-top: 5px;
+}
+.registrations-new__wrapper__form__set__ruby-name__first-name{
+  margin-top: 5px;
 }
