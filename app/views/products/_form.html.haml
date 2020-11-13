@@ -1,0 +1,95 @@
+.product__content
+  = form_with model: @product, html: {class: "form_box"}, local: true do |f|
+    .product--img
+      %label 出品画像
+      %span 必須
+      .product__box--img
+        .previews#previews
+          - if @product.persisted?
+            - @product.images.each_with_index do |image, i|
+              = image_tag image.url.to_s, date: {index: i}
+        %label#image-input__lebel.form__image{for: "product_images_attributes_#{@product.images.length-1}_url"}
+          = icon('fas', 'camera', class: "img--icon") 
+          クリックして画像をアップロード
+        = f.fields_for :images do |i|  
+          .date-index
+            .js-file_group{data:{index: i.index}}
+              = i.file_field :url, class: "js-file", data:{index: i.index}
+          - if i.object.persisted?
+            = i.check_box :_destroy, date:{index: i.index}, class: 'hidden-destroy' 
+        - if @product.persisted?
+          .date-index
+            .js-file_group{data:{index:"#{@product.images.count}"}}
+              = file_field_tag :url, name: "product[images_attributes][#{@product.images.count}][url]", class: 'js-file'
+            .js-remove 削除
+    .product--info
+      .product--name
+        %label 商品名
+        %span 必須
+        .product__box
+          = f.text_field :name, class: "product", placeholder: "40字まで"
+      .prodcut--description
+        %label 商品の説明
+        %span 必須
+        .product__box
+          = f.text_area :description, class: "description", placeholder: "商品の説明（色、素材、重さ、定価、注意点など）"
+    .product--show 
+      商品の詳細
+      .category__box
+        %label カテゴリー
+        %span 必須
+        .product__box
+          .category__box__parent
+            - if @product.persisted?
+              = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---", selected:@product.category.root_id}, class:'product', id:'parent_category'
+              = f.collection_select :category_id, @product.category.parent.siblings, :id, :name, {include_blank:"---", selected:@product.category.parent_id}, class:'product', id:'children_wrapper'
+              = f.collection_select :category_id, @product.category.siblings, :id, :name, {include_blank:"---", selected:@product.category_id}, class:'product', id:'grandchildren_wrapper'
+            - else
+              = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---"}, class:'product', id:'parent_category'
+      .product--size
+        %label 商品のサイズ
+        %span 必須
+        .product__box
+          = f.select :size, [["---", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "product"
+      .brand__box
+        %label ブランド (任意)
+        .product__box
+          = f.text_field :brand_id, class: "product"
+      .product--status
+        %label 商品の状態
+        %span 必須
+        .product__box
+          = f.select :status, [["---", 0],["新品・未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {}, class: "product"
+    .delivery
+      配送について
+      .product--destination
+        %label 発送元
+        %span 必須
+        .product__box
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank:"---"}, class:'product'
+      .product--delivery_day
+        %label 発送までの日数
+        %span 必須
+        .product__box
+          = f.select :delivery_day, [["---", 0],["1〜2日以内", 1],["2〜3日以内", 2],["4~7日以内",3]], {}, class: "product"
+      .product--cost
+        %label 配送料
+        %span 必須
+        .product__momey
+          .product__box
+            = f.number_field :cost, class: "product"
+          .product__unit 円
+    .price
+      価格について
+      .product--price
+        %label 販売価格
+        %span 必須
+        .product__momey
+          .product__box
+            = f.number_field :price, class: "product"
+          .product__unit 円
+    .form_submit
+      - if @product.persisted?
+        = f.submit '更新する', class: "submit"
+      - else
+        = f.submit '出品する', class: "submit"

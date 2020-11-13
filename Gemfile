@@ -38,6 +38,11 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+
+  # 2020.11.12追加
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rails-controller-testing'
+  gem 'faker', "~> 2.8"
 end
 
 group :development do
@@ -65,7 +70,6 @@ group :production do
   gem 'unicorn'
 end
 
-
 # 2020.10.11追加
 gem 'pry-rails'
 
@@ -81,3 +85,8 @@ gem 'devise'
 # 2020.11.10追加
 gem 'ancestry'
 gem 'jquery-rails'
+
+# 2020.11.12追加
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
