@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   protected
   def destination_params
-    params.require(:destination).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :post_code, :prefecture, :city, :address, :building_name, :phone_number)
+    params.require(:destination).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :post_code, :prefecture_id, :city, :address, :building_name, :phone_number)
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

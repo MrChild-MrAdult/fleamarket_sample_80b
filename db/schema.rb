@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_111943) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.integer "post_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_111943) do
     t.string "status", null: false
     t.string "size", null: false
     t.string "description", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "delivery_day", null: false
     t.string "judgment"
     t.bigint "user_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_111943) do
     t.string "first_name_kana", null: false
     t.date "birth_day", null: false
     t.string "user_img"
-    t.text "introduciton"
+    t.text "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

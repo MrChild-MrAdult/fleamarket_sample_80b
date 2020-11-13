@@ -50,7 +50,7 @@ Things you may want to cover:
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |post_code|string|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|
@@ -77,14 +77,14 @@ Things you may want to cover:
 |status|string|null: false|
 |size|string|null: false|
 |description|string|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |delivery_day|string|null: false|
 |judgment|string|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user dependent: :destroy
+- belongs_to :user 
 - belongs_to :category dependent: :destroy
 - belongs_to :brand dependent: :destroy
 - has_many :images dependent: :destroy

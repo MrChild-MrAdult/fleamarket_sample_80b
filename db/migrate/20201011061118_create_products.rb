@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :status, null: false
       t.string :size, null: false
       t.string :description, null: false
-      t.string :prefecture, null: false
+      t.integer :prefecture_id, null: false
       t.string :delivery_day, null: false
       t.string :judgment
       t.references :user, forenign_key: true

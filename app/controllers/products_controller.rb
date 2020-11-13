@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
-  
+
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -12,9 +12,18 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
+    @product.images.new 
   end
 
   def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path, notice: '商品が出品されました'
+    else
+      flash.now[:alert] = '商品情報に未入力があります'
+      render :new
+    end
   end
 
   def destroy
@@ -51,6 +60,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def product_params
+    params.require(:product).permit(:name, :price, :cost, :description, :prefecture_id, :delivery_day, :brand_id, :size, :category_id, :status, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+  end
 
   def move_to_index
     unless user_signed_in?
