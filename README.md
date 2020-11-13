@@ -86,7 +86,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user 
 - belongs_to :category dependent: :destroy
-- belongs_to :brand dependent: :destroy
+- belongs_to :brand dependent: :destroy, optional: true
 - has_many :images dependent: :destroy
 
 ## categoriesテーブル
