@@ -17,7 +17,7 @@
   %ul.listsLeft
     %li.listsLeft__item.listsLeft__item--first
       = image_tag asset_path("icon_category.png"), class:"nav_img", size: "18×18" 
-      = link_to "カテゴリーから探す", categories_path, class:"catBtn" , id: "catroy_top_title" 
+      = link_to "カテゴリーから探す", categories_path, class:"catBtn" 
       .tree.displayNone
         %ul.categoryTree
           - @parents.each do |parent|
