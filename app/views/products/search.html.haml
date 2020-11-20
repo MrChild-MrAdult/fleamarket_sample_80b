@@ -1,4 +1,3 @@
-
 = render 'topHeader__inner'
 
 .products-search__body
@@ -10,12 +9,10 @@
     .search-detail
       .search-detail__title 詳細検索
 
-
       .search-detail__keyword
         .keyword-icon.fas.fa-plus
         .keyword-text キーワードを追加する
       %input.search-detail__keyword--input{placeholder: "例）値下げ"}
-
 
       .search-detail__category
         .category-icon.fas.fa-bars
@@ -24,12 +21,10 @@
         .search-detail__category-box--select すべて
         .search-detail__category-box--allow.fas.fa-angle-down
 
-
       .search-detail__brand
         .brand-icon.fas.fa-tag
         .brand-text ブランド名から探す
       %input.search-detail__brand--input{placeholder: "例）シャネル"}
-
 
       .search-detail__size
         .size-icon.fas.fa-expand
@@ -37,7 +32,6 @@
       .search-detail__size-box
         .search-detail__size-box--select すべて
         .search-detail__size-box--allow.fas.fa-angle-down
-
 
       .search-detail__price
         .price-icon.fas.fa-coins
@@ -49,7 +43,6 @@
         %input.search-detail__price-input--min{placeholder: "¥ Min"}
         .search-detail__price-input--middle ~
         %input.search-detail__price-input--max{placeholder: "¥ Max"}
-
 
       .search-detail__condition
         .condition-icon.fas.fa-star
@@ -77,7 +70,6 @@
           .condition-select__checkbox ■
           .condition-select__text 全体的に状態が悪い
 
-
       .search-detail__delivery
         .delivery-icon.fas.fa-truck
         .delivery-text 配送料の負担
@@ -91,7 +83,6 @@
         .delivery-select
           .delivery-select__checkbox ■
           .delivery-select__text 送料込み(出品者負担)
-
 
       .search-detail__status
         .status-icon.fas.fa-shopping-cart
@@ -112,92 +103,39 @@
         .search-detail__btn--clear クリア
         .search-detail__btn--enter 完了
 
-
-
   .results
     .titlebox
-      .titlebox__keyword プログラミング
+      .titlebox__keyword 
+        プログラミング
       .titlebox__subtext の検索結果
 
     .counts 1-132件表示
 
     .items-lists
-        
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
+      - @products.each do |product|
+        .productBox__List
+          = link_to product_path(product) do
+            %figure.productBox__img
+              -product.images.each do |image|
+                = image_tag image.url.to_s
+            .productBox__body
+              %p.name
+                = product.name
+              %p.details
+                = product.price
+                円
 
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
-
-
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
-
-
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
-
-
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
-
-
-      .item-detail
-        .item__img
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-        .item__content
-          .item__title ee
-          .item__price-like
-            .item-price 1000円
-            .item-like
-              .item-like__icon.fa.fa-star.likeIcon
-              .item-like__num 4 
-          .item__tax (税込)
+      -# .item-detail
+      -#   .item__img
+      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+      -#   .item__content
+      -#     .item__title ee
+      -#     .item__price-like
+      -#       .item-price 1000円
+      -#       .item-like
+      -#         .item-like__icon.fa.fa-star.likeIcon
+      -#         .item-like__num 4 
+      -#     .item__tax (税込)
 
 = render 'footer'
 

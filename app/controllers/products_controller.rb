@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.includes(:images).order('created_at DESC')
   end
 
-  def show 
+  def show
     @grandchild = @product.category
     @child = @grandchild.parent
     @parent = @child.parent
@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @products = Product.search(params[:keyword])
   end
 
   def get_category_children
