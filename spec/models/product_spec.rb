@@ -85,6 +85,33 @@ describe Product do
     end
 
   end
+
+  describe '#search' do
+    before do
+      @product1 = FactoryBot.create(:product, name: "miuna")
+      @product2 = FactoryBot.create(:product, name: "manaka")
+      @product3 = FactoryBot.create(:product, name: "sayu")
+    end
+
+    # 検索内容がある場合
+    context "search by name:'u'" do
+      it "returns @product" do
+        expect(Product.search("u")).to include(@product1)
+      end
+
+      it "doesn't returne @product2" do
+        expect(Product.search("u")).to_not include(@product2)
+      end
+    end
+
+    # 空で検索した場合
+    context "search by 'Hikari'" do
+      it "returns @product" do
+        expect(Product.search("Hikari")).to be_empty
+      end
+    end
+
+  end
 end
 
 

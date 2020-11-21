@@ -4,9 +4,9 @@
       = link_to root_path do
         = image_tag asset_path("logo.png")
     .searchBox
-      %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+      = form_with url: search_products_path, method: :get, local: true do |f|
         %input{name: "utf8", type: "hidden", value: "✓"}/
-        %input#searchInput.searchBox__input{name: "key", placeholder: "キーワードから探す"}/
+        = f.text_field :keyword, placeholder: "キーワードから探す"
         %button{type: "submit"}
           .searchBox__icon
             = image_tag asset_path("icon-search.png")
