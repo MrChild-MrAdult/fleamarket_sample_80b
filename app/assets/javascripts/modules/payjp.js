@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function(){
         exp_month: document.getElementById("card_month").value,
         exp_year: document.getElementById("card_year").value
     };
-    //console.log(card);
+    console.log(card);
     
     Payjp.createToken(card, function(status, response) {  // トークンを生成
       if (status === 200) { //成功した場合(status === 200はリクエストが成功している状況です。)
