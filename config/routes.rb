@@ -19,13 +19,15 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show, :edit] do
+    resources :credit_cards, only: [:new, :create, :show, :destroy] do
+    end
+
     collection do
       get :logout
       get :personal_edit
     end
   end
 
-  resources :credit_cards, only: [:new]
 
   resources :categories, only: [:index, :show]
 
