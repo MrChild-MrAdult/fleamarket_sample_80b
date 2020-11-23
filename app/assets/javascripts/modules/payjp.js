@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', function(){
-  console.log("hoge")
   //id名が"payment_card_submit-button"というボタンが押されたら取得
   let btn = document.getElementById('token_submit');
   Payjp.setPublicKey('pk_test_d5231006a99ce6fd2f663ad6'); //公開鍵の記述(ご自身の公開鍵コードを記述しよう！)
@@ -14,7 +13,6 @@ window.addEventListener('DOMContentLoaded', function(){
         exp_month: document.getElementById("card_month").value,
         exp_year: document.getElementById("card_year").value
     };
-    console.log(card);
     
     Payjp.createToken(card, function(status, response) {  // トークンを生成
       if (status === 200) { //成功した場合(status === 200はリクエストが成功している状況です。)
