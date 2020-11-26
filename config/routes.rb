@@ -28,8 +28,13 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :categories, only: [:index, :show]
+  resources :categories, only: :index do
+    member do
+      get :parent
+      get :child
+      get :grandchild
+    end
+  end
 
   resources :brands, only: :index
 end
