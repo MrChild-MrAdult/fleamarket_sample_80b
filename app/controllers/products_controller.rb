@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -27,12 +28,23 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    if @product.destroy
+      redirect_to root_path, notice: '商品が出品されました'
+    else
+      flash.now[:alert] = '商品削除に失敗しました'
+    end
   end
 
   def edit
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to root_path, notice: '商品が更新されました'
+    else
+      flash.now[:alert] = '商品情報に未入力があります'
+      render :edit
+    end
   end
 
   def check
@@ -72,4 +84,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end

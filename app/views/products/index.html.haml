@@ -92,6 +92,8 @@
       = link_to root_path do
         %h3.title 新規投稿商品
     .productBox
+      -# = link_to '削除', product_path(product.id), method: :delete
+    .productBox
       .productBox__List
         = link_to root_path do
           %figure.productBox__img
