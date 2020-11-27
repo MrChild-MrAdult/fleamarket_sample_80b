@@ -1,0 +1,23 @@
+= render 'products/topHeader__inner'
+
+.category__main
+  .showMain
+    .category__contents
+      .title__box
+        .catTitle
+          = "#{@category.name}の商品一覧"
+      .productBox 
+        -#以下は今後実装
+        -# - @category.products.each do |product|
+        -#   .productBox__List
+        -#     = link_to product_path(product) do
+        -#       %figure.productBox__img
+        -#         -product.images.each do |image|
+        -#           = image_tag image.url.to_s
+        -#       .productBox__body
+        -#         %p.name
+        -#           = product.name
+        -#         %p.details
+        -#           = product.price
+
+= render 'products/footer'

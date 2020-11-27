@@ -92,3 +92,7 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'carrierwave'
 gem 'mini_magick'
+
+# 2020.11.17追加
+gem 'payjp'
+gem 'dotenv-rails'

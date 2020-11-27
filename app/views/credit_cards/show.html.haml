@@ -1,0 +1,23 @@
+= render 'products/topHeader__inner'
+
+%main.l-container
+  .l-content
+    .card-box
+      .card-box__info
+        登録クレジットカード情報
+      .card-box__contents
+        = "**** **** **** " + @customer_card.last4
+        .expiration_date
+          .expiration_date__title
+            有効期限
+          .expiration_date__info
+            = @exp_month + " / " + @exp_year
+      .card-box__destroy
+        = link_to user_credit_card_path, method: :delete, class: "card-box__destroy--link" do
+          削除する
+    .payment-details
+      = link_to "支払い方法について >", "", class: "payment-details__btn"
+
+  = render partial: 'users/side'
+
+= render 'products/footer'
