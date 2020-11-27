@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
     @products = Product.includes(:images).order('created_at DESC')
   end
 
-  def show 
+  def show
+    @product = Product.find(params[:id])
     @grandchild = @product.category
     @child = @grandchild.parent
     @parent = @child.parent
@@ -27,12 +28,23 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path, notice: '商品が削除されました'
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to root_path, notice: '商品が更新されました'
+    else
+      flash.now[:alert] = '商品情報に未入力があります'
+      render :edit
+    end
   end
 
   def check

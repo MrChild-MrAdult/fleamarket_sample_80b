@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('.date-index').append(buildFileField(fileIndex[0]));
+      $('.data-index').append(buildFileField(fileIndex[0]));
       $('#image-input__lebel').attr('for', `product_images_attributes_${fileIndex[0]}_url`);
       fileIndex.shift();
       // 末尾の数に1足した数を追加する

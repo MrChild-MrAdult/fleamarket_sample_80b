@@ -5,23 +5,20 @@
       %span 必須
       .product__box--img
         .previews#previews
-          - if @product.persisted?
-            - @product.images.each_with_index do |image, i|
-              = image_tag image.url.to_s, date: {index: i}
+          - @product.images.each_with_index do |image, i|
+            - if @product.persisted?
+              .preview
+                = image_tag image.url.to_s, data: {index: i}
+                .js-remove 削除
         %label#image-input__lebel.form__image{for: "product_images_attributes_#{@product.images.length-1}_url"}
           = icon('fas', 'camera', class: "img--icon") 
           クリックして画像をアップロード
         = f.fields_for :images do |i|  
-          .date-index
+          .data-index
             .js-file_group{data:{index: i.index}}
               = i.file_field :url, class: "js-file", data:{index: i.index}
           - if i.object.persisted?
-            = i.check_box :_destroy, date:{index: i.index}, class: 'hidden-destroy' 
-        - if @product.persisted?
-          .date-index
-            .js-file_group{data:{index:"#{@product.images.count}"}}
-              = file_field_tag :url, name: "product[images_attributes][#{@product.images.count}][url]", class: 'js-file'
-            .js-remove 削除
+            = i.check_box :_destroy, data:{index: i.index}, class: 'hidden-destroy' 
     .product--info
       .product--name
         %label 商品名
