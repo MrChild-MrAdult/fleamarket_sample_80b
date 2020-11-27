@@ -31,7 +31,7 @@
           .users-new__wrapper__form__set__prefectures
             %span.form-require 必須
             %br/
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank:"---"}, placeholder: '都道府県' 
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank:"都道府県"} 
           .users-new__wrapper__form__set__city
             %span.form-require 必須
             %br/

@@ -10,15 +10,15 @@
             = link_to "#{parent.name}", root_path, class: "indexTitle"
       .title__box
         - @parents.each do |parent|
-          = link_to "#{parent.name}", "#", class: "catTitle"
+          = link_to "#{parent.name}", parent_category_path(parent), class: "catTitle"
           %ul.catContents
             - parent.children.each do |child|
               %li.catContent
-                = link_to "#{child.name}", "#", class: "contentTitle"
+                = link_to "#{child.name}", child_category_path(child), class: "contentTitle"
               %ul.catItems
                 - child.children.each do |grandchild|
                   %li.catItem
-                    = link_to "#{grandchild.name}", "#", class: "itemTitle"
+                    = link_to "#{grandchild.name}", grandchild_category_path(grandchild), class: "itemTitle"
             .TopBtn
               = link_to "ページトップへ", "#", class: "TopPage"
 

@@ -12,7 +12,6 @@ body {
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
-
 .topHeader {
   padding: 0 60px;
   &__inner {
@@ -47,7 +46,7 @@ body {
     margin-bottom: 5px;
   }
   input {
-    width: calc(100% - 26px);
+    width: 65vw;
     height: 36px;
     padding: 0 0 0 5px;
     font-family: inherit;
@@ -418,7 +417,7 @@ img {
   &__List {
     width: 220px;
     display: inline-block;
-    float: left;
+    margin: 10px 5px;
   }
   &__List a {
     background-color: #fff;

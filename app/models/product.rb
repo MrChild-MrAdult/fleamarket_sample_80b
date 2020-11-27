@@ -13,5 +13,13 @@ class Product < ApplicationRecord
   validates :name, presence: true, length: {maximum: 30}
   validates :description, presence: true, length: {maximum: 140}
   validates :images,presence: true
+
+  def self.search(search)
+    if search != ""
+      Product.where('name LIKE(?)', "%#{search}%")
+    else
+      Product.all
+    end
+  end
   
 end
