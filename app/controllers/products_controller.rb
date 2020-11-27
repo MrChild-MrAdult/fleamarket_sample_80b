@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
 
   def show
-    @product = Product.find(params[:id])
     @grandchild = @product.category
     @child = @grandchild.parent
     @parent = @child.parent
@@ -28,17 +28,17 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path, notice: '商品が削除されました'
+    if @product.destroy
+      redirect_to root_path, notice: '商品が出品されました'
+    else
+      flash.now[:alert] = '商品削除に失敗しました'
+    end
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to root_path, notice: '商品が更新されました'
     else
@@ -83,4 +83,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
