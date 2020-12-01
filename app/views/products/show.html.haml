@@ -1,66 +1,93 @@
 
 = render 'topHeader__inner'
-
-.products-show__body
+​
+.body
   .product-box
-    .product-box__title product
+    .product-box__title 
+      -# product
+      = @product.name
     .product-box__imgs
       .main-img
+        = image_tag @product.images[0].url.url, size:"560x350"
       .sub-imgs
-        .sub-img
-        .sub-img
-        .sub-img
+        - @product.images.each do |image|
+          .sub-img
+            = image_tag image.url.url, size:"140x100"
+        -# .sub-img
+        -# .sub-img
     .product-box__price
-      .price-info ¥30000
+      .price-info 
+        = @product.price
       .tax-fee
         .tax-info (税込)
         .fee-info 送料込み
     .product-box__btn 購入画面に進む
     .product-box__explain
-      親譲りの無鉄砲で小供の時から損ばかりしている。
-      小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
-      なぜそんな無闇をしたと聞く人があるかも知れぬ。
-      別段深い理由でもない。新築の二階から首を出していたら、
-      同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
-      弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、
-      おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      -# 親譲りの無鉄砲で小供の時から損ばかりしている。
+      -# 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+      -# なぜそんな無闇をしたと聞く人があるかも知れぬ。
+      -# 別段深い理由でもない。新築の二階から首を出していたら、
+      -# 同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
+      -# 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、
+      -# おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      = @product.description
     %table.product-box__table
       %tr
         %th 出品者
-        %td hoge
+        %td 
+          = @product.user.nickname
       %tr
         %th カテゴリー
         %td
-          ベビー・キッズ
+          = @parent.name 
           %br>/
-          ベビー服(男女兼用) ~95cm
+          = @child.name 
           %br>/
-          アウター
+          = @grandchild.name
+        -# %td
+        -#   ベビー・キッズ
+        -#   %br>/
+        -#   ベビー服(男女兼用) ~95cm
+        -#   %br>/
+        -#   アウター
       %tr
         %th ブランド
-        %td アカチャンホンポ
+        %td 
+          = @product.brand
       %tr
         %th 商品のサイズ
-        %td M
+        %td 
+          = @product.size.name
       %tr
         %th 商品の状態
-        %td 未使用に近い
+        %td 
+          = @product.status.name
       %tr
         %th 配送料の負担
         %td 送料込み(出品者負担)
       %tr
         %th 配送元地域
-        %td 埼玉県
+        %td 
+          = @product.prefecture.name
       %tr
         %th 発送日の目安
-        %td 1~2日で発送
+        %td 
+          = @product.delivery.name
     .product-box__sub
       .like-btn
-        .like-btn__icon.fa.fa-star.likeIcon
+        .like-btn__icon ★
         .like-btn__text お気に入り
         .like-btn__num 1
+      .edit-btn
+        - if user_signed_in? && current_user.id == @product.user_id
+          = link_to edit_product_path(@product), class: "edit__btn" do
+            編集
+      .delete-btn
+        - if user_signed_in? && current_user.id == @product.user_id
+          = link_to product_path(@product), method: :delete, class: "delete__btn" do
+            削除
       .report-btn
-        .repot-btn__icon.fas.fa-flag
+        .repot-btn__icon 🏴
         .report-btn__text 不適切な商品の通報
   .comments-list
     .comment-box
@@ -95,7 +122,7 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon.fa.fa-star.likeIcon
+              .other-like__icon ★
               .other-like__num 4
           .other__tax (税込)
     .others__list
@@ -106,7 +133,7 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon.fa.fa-star.likeIcon
+              .other-like__icon ★
               .other-like__num 4
           .other__tax (税込)
     .others__list
@@ -117,9 +144,8 @@
           .other__price-like
             .other-price 1000円
             .other-like
-              .other-like__icon.fa.fa-star.likeIcon
+              .other-like__icon ★
               .other-like__num 4
           .other__tax (税込)
-
+​
 = render 'footer'
-

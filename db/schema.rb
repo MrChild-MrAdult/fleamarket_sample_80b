@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.string "name", null: false
     t.string "price", null: false
     t.string "cost", null: false
-    t.string "status", null: false
-    t.string "size", null: false
+    t.integer "status_id", null: false
+    t.integer "size_id", null: false
     t.string "description", null: false
     t.integer "prefecture_id", null: false
-    t.string "delivery_day", null: false
+    t.integer "delivery_id", null: false
     t.string "judgment"
     t.bigint "user_id"
     t.bigint "category_id"
@@ -101,3 +101,4 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
 
   add_foreign_key "credit_cards", "users"
 end
+
