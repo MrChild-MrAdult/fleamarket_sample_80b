@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
     @grandchild = @product.category
     @child = @grandchild.parent
     @parent = @child.parent
@@ -13,7 +14,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.new 
+    @product.images.new
   end
 
   def create
@@ -63,7 +64,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :cost, :description, :prefecture_id, :delivery_day, :brand_id, :size, :category_id, :status, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :cost, :description, :prefecture_id, :delivery_id, :brand, :size_id, :category_id, :status_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index

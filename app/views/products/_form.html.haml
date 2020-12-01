@@ -50,16 +50,16 @@
         %label 商品のサイズ
         %span 必須
         .product__box
-          = f.select :size, [["---", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "product"
+          = f.select :size_id, [["---", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "product"
       .brand__box
         %label ブランド (任意)
         .product__box
-          = f.text_field :brand_id, class: "product"
+          = f.text_field :brand, class: "product"
       .product--status
         %label 商品の状態
         %span 必須
         .product__box
-          = f.select :status, [["---", 0],["新品・未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {}, class: "product"
+          = f.select :status_id, [["---", 0],["新品・未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {}, class: "product"
     .delivery
       配送について
       .product--destination
@@ -71,7 +71,7 @@
         %label 発送までの日数
         %span 必須
         .product__box
-          = f.select :delivery_day, [["---", 0],["1〜2日以内", 1],["2〜3日以内", 2],["4~7日以内",3]], {}, class: "product"
+          = f.select :delivery_id, [["---", 0],["1〜2日以内", 1],["2〜3日以内", 2],["4~7日以内",3]], {}, class: "product"
       .product--cost
         %label 配送料
         %span 必須
