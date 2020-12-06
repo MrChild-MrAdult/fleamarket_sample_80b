@@ -28,14 +28,16 @@ window.addEventListener("DOMContentLoaded", () => {
   $('.hidden-destroy').hide();
 
   $('.product__box--img').on('change', '.js-file', function(e) {
+    // console.log(10)
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
+    // console.log(targetIndex);
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('url', blobUrl);
+ 
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -47,16 +49,24 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  
+
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
+    // // debugger
+    // console.log("a");
+    // console.log($(this).parent());
+    // console.log(targetIndex);
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    // console.log(hiddenCheck);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(`img[data-index="${targetIndex}"]`).remove();
     $(`input[type="file"][data-index="${targetIndex}"]`).remove();
     $(this).parent().remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('.product__box--img').append(buildFileField(fileIndex[0] - 1));
+    
   });
 });

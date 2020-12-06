@@ -9,4 +9,7 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def personal_edit
+  end
+
 end

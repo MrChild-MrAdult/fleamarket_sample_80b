@@ -4,12 +4,12 @@
     %li
       //= link_to "マイページ", user_path(current_user)
       //= image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
-      = link_to "マイページ"
+      = link_to "マイページ", user_path(current_user)
       -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
       .arrows-img.fas.fa-angle-down
     %li
       //= link_to "プロフィール編集", edit_user_path(current_user)
-      = link_to "プロフィール編集"
+      = link_to "プロフィール編集", edit_user_path(current_user), class: "edit"
       -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
       .arrows-img.fas.fa-angle-down
     %li
@@ -18,15 +18,15 @@
       = link_to "クレジットカード登録", new_user_credit_card_path(current_user)
       .arrows-img.fas.fa-angle-down
     %li
-      = link_to "住所変更"
+      = link_to "住所変更", personal_edit_users_path(current_user)
       -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
       .arrows-img.fas.fa-angle-down
     %li
-      = link_to "本人情報"
+      = link_to "本人情報", personal_edit_users_path(current_user)
       -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
       .arrows-img.fas.fa-angle-down
     %li.logout
       -# = link_to "ログアウト", logout_path
       -# = image_tag asset_path("arrows-icon.png", alt: "画像"), class: "arrows-img"
-      = link_to "ログアウト"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout"
       .arrows-img.fas.fa-angle-down
