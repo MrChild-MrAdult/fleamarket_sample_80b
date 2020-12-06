@@ -19,11 +19,11 @@
           %p 2020/01/01
         .form-group
           %label{:for => "zip_code"} 郵便番号
-          %span.form-arbitrary 任意
+          %span.form-arbitrary 必須
           %input.input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text", :value => ""}/
         .form-group
           %label{:for => "prefecture"} 都道府県
-          %span.form-arbitrary 任意
+          %span.form-arbitrary 必須
           .select-wrap
             %select.select-wrap__default{:name => "prefecture"}
               %option --
@@ -76,15 +76,15 @@
               %option 沖縄県
         .form-group
           %label{:for => "city"} 市区町村
-          %span.form-arbitrary 任意
+          %span.form-arbitrary 必須
           %input.input-default{:name => "city", :placeholder => "例) 東京都千代田区", :type => "text", :value => ""}/
         .form-group
           %label{:for => "address1_label"} 番地
-          %span.form-arbitrary 任意
+          %span.form-arbitrary 必須
           %input.input-default{:name => "address1", :placeholder => "例) 住所1−1−1", :type => "text", :value => ""}/
         .form-group
           %label{:for => "address2_label"} 建物名
-          %span.form-arbitrary 任意
+          %span.form-arbitrary 必須
           %input.input-default{:name => "address2", :placeholder => "例) 丸ビル101", :type => "text", :value => ""}/
         %button.btn-default{:type => "submit"} 変更する
   

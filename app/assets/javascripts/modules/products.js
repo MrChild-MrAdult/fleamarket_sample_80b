@@ -32,10 +32,10 @@ window.addEventListener("DOMContentLoaded", () => {
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('url', blobUrl);
+ 
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -47,6 +47,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  
+
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
@@ -57,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
     $(`input[type="file"][data-index="${targetIndex}"]`).remove();
     $(this).parent().remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('.product__box--img').append(buildFileField(fileIndex[0] - 1));
+    
   });
 });
