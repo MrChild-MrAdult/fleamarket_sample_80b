@@ -1,5 +1,13 @@
 = render 'products/topHeader__inner'
 
+- if @category.root?
+  - breadcrumb :parent_category
+- elsif @category.has_children?
+  - breadcrumb :child_category
+- else
+  - breadcrumb :grandchild_category
+= render "layouts/breadcrumbs"
+
 .category__main
   .showMain
     .category__contents
@@ -12,17 +20,19 @@
               %li.catItem_one
                 = link_to "#{child.name}", child_category_path(child), class: "itemTitle"
       .productBox
-        -#以下は今後実装
-        -# - @categories_product.each do |product|
-        -#   .productBox__List
-        -#     = link_to product_path(product) do
-        -#       %figure.productBox__img
-        -#         -product.images.each do |image|
-        -#           = image_tag image.url.to_s
-        -#       .productBox__body
-        -#         %p.name
-        -#           = product.name
-        -#         %p.details
-        -#           = product.price
+        - @categories_product.each do |product|
+          .productBox__List
+            = link_to product_path(product) do
+              %figure.productBox__img
+                = image_tag product.images[0].url.url
+              .productBox__body
+                = product.name
+                .details
+                  %ul
+                    %li #{product.price}円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                  %p (税込)
+        
 
 = render 'products/footer'

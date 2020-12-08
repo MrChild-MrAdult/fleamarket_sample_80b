@@ -9,7 +9,7 @@
         %figure
           = image_tag asset_path("logo.png", alt: "仮画像"), size: "50x50" 
         %h2.bold 
-          umi
+          = @nickname
         %ul.mypage-number
           %li.evaluation 
             評価
@@ -24,76 +24,13 @@
         %text_area 自己紹介文を記入しよう！
       .user-profile
         = link_to "編集する", edit_user_path(current_user), class: "edit"
-        -# = link_to "編集する", class: "edit"
     %h2.item-box-head 
       この出品者の商品
       .items-box-content
         %section.item-box
-          .productBox__List
-            = link_to root_path do
-              %figure.productBox__img
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
-              .productBox__body
-                %h3.name テスト
-                .details
-                  %ul
-                    %li 10000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      1
-                  %p (税込)
-          .productBox__List
-            = link_to root_path do
-              %figure.productBox__img
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-              .productBox__body
-                %h3.name ee
-                .details
-                  %ul
-                    %li 1000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      4
-                  %p (税込)
-          .productBox__List
-            = link_to root_path do
-              %figure.productBox__img
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-              .productBox__body
-                %h3.name product3
-                .details
-                  %ul
-                    %li 30000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      1
-                  %p (税込)
-          .productBox__List
-            = link_to root_path do
-              %figure.productBox__img
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-              .productBox__body
-                %h3.name product2
-                .details
-                  %ul
-                    %li 20000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
-          .productBox__List
-            = link_to root_path do
-              %figure.productBox__img
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
-              .productBox__body
-                %h3.name product1
-                .details
-                  %ul
-                    %li 10000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      1
-                  %p (税込)
+          .productBox
+            = render 'products/product'
+
   = render partial: 'side'
   
 = render 'products/footer'
