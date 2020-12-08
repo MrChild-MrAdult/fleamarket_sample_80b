@@ -96,3 +96,7 @@ gem 'mini_magick'
 # 2020.11.17追加
 gem 'payjp'
 gem 'dotenv-rails'
+
+# 2020.12.08追加
+gem 'ransack'
+gem 'gretel'

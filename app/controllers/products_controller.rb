@@ -52,7 +52,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search(params[:keyword])
+    @search = Product.ransack(params[:q]) 
+    @search_products = @search.result
   end
 
   def get_category_children
