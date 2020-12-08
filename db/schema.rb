@@ -71,10 +71,9 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.string "judgment"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.bigint "brand_id"
+    t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -101,4 +100,3 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
 
   add_foreign_key "credit_cards", "users"
 end
-
