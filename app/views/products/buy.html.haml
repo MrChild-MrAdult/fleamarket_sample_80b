@@ -1,7 +1,7 @@
-
 .check-body
   .check-logo
-    = image_tag asset_path("logo.png"), class:"logo__img"
+    = link_to root_path do
+      = image_tag asset_path("logo.png"), class:"logo__img"
   .check-lists
     .head 購入内容の確認
     .product-info
@@ -11,36 +11,33 @@
         .product-title
           = @product.name
         .fee-price
-          .fee 送料込み（税込）¥
+          .fee 送料込み（税込）
           .price
-            = @product.price
+            = "¥" + @product.price
     .pay-info
       .pay-info__title 支払い金額
       .pay-info__price
-        = @product.price
-    .method-info
-      .method-info__head
-        .method-title 支払い方法
-        .method-change
-          = link_to "変更する 〉", new_user_credit_card_path(current_user)
-            
-      .method-info__detail
-        クレジットカード
-        %br/
-        *************2928
-        %br/
-        有効期限 06/23
-    -# .delivery-info
-    -#   .delivery-info__head
-    -#     .delivery-title 配送先
-    -#     .delivery-change 変更する 〉
-    -#   .delivery-info__detail
-    -#     〒000-0000
-    -#     %br/
-    -#     東京都 八王子市 aaaaaaa bbbbbb
-    -#     %br/
-    -#     山田 太郎
-    .decision-btn 購入する
+        = "¥" + @product.price
+
+    - if @user.credit_card.present?
+      .method-info
+        .method-info__head
+          .method-title 支払い方法
+          .method-change
+            = link_to "変更する 〉", new_user_credit_card_path(current_user)
+        
+        .method-info__detail
+          クレジットカード
+          %br
+            = "**** **** **** " + @customer_card.last4
+          %br
+            = "有効期限　" + @exp_month + " / " + @exp_year
+      .decision-btn
+        = link_to "クレジットカードで購入する", pay_product_path(@product), method: :post
+    - else
+      .decision-btn
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_d5231006a99ce6fd2f663ad6"}
   .terms
     .term プラインバシーポリシー
     .term FURIMA利用規約
