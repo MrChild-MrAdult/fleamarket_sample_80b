@@ -6,35 +6,40 @@
     .head 購入内容の確認
     .product-info
       .product-info__img
+        = image_tag @product.images[0].url.url
       .product-info__detail
         .product-title
-          持続可能な成長のための品質機能展開 : JIS Q 9025の有効活用法とその…
+          = @product.name
         .fee-price
-          .fee 送料込み（税込）
-          .price ¥750
+          .fee 送料込み（税込）¥
+          .price
+            = @product.price
     .pay-info
       .pay-info__title 支払い金額
-      .pay-info__price ¥750
+      .pay-info__price
+        = @product.price
     .method-info
       .method-info__head
         .method-title 支払い方法
-        .method-change 変更する 〉
+        .method-change
+          = link_to "変更する 〉", new_user_credit_card_path(current_user)
+            
       .method-info__detail
         クレジットカード
         %br/
         *************2928
         %br/
         有効期限 06/23
-    .delivery-info
-      .delivery-info__head
-        .delivery-title 配送先
-        .delivery-change 変更する 〉
-      .delivery-info__detail
-        〒000-0000
-        %br/
-        東京都 八王子市 aaaaaaa bbbbbb
-        %br/
-        山田 太郎
+    -# .delivery-info
+    -#   .delivery-info__head
+    -#     .delivery-title 配送先
+    -#     .delivery-change 変更する 〉
+    -#   .delivery-info__detail
+    -#     〒000-0000
+    -#     %br/
+    -#     東京都 八王子市 aaaaaaa bbbbbb
+    -#     %br/
+    -#     山田 太郎
     .decision-btn 購入する
   .terms
     .term プラインバシーポリシー
