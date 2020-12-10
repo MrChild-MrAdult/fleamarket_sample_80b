@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get :search
-      get :pay
-      get :check
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     member do
+      get :buy
+      post :pay
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
