@@ -132,16 +132,12 @@ class ProductsController < ApplicationController
         else
           # ログインユーザーがクレジットカード登録されていない場合(Checkout機能による処理を行います)
           # APIの「Checkout」ライブラリによる決済処理の記述
-          #binding.pry
           Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
           charge = Payjp::Charge.create(
           amount: @product.price,
           card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
           currency: 'jpy'
           )
-          binding.pry
-          @card = CreditCard.new(user_id: current_user.id, customer_id: charge.id, card_id: charge.card.id)
-          @card.save
         end
 
 

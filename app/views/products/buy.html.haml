@@ -36,7 +36,7 @@
         = link_to "クレジットカードで購入する", pay_product_path(@product), method: :post
     - else
       .decision-btn
-        = form_tag(action: :pay, method: :post) do
+        = form_with url: pay_product_path do
           %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_d5231006a99ce6fd2f663ad6"}
   .terms
     .term プラインバシーポリシー
