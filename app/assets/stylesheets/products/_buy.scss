@@ -62,7 +62,6 @@ $furima-color: #3CCACE;
       height: 80px;
       margin-right: 17px;
       border-radius: 5px;
-      background-color: aqua;
     }
     &__detail {
       width: 250px;
@@ -179,6 +178,10 @@ $furima-color: #3CCACE;
     background-color: $furima-color;
   }
 
+}
+
+.payjp-button {
+  background-color: green;
 }
 
 .terms {

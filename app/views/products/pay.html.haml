@@ -1,0 +1,22 @@
+.mainHeader
+  %h1.icon2
+    = link_to root_path do
+      = image_tag asset_path("logo.png")
+ 
+
+.pay-body
+  .pay-main
+    .pay-main__title
+      購入が完了しました
+    .pay-main__contents
+      .pay-img
+        = image_tag @product.images[0].url.url
+      .pay-detail
+        .pay-detail__title
+          = @product.name
+        .pay-detail__price
+          = "¥" + @product.price
+
+    .pay-main__btn
+      = link_to "トップページに戻る", root_path, class: "pay-to-home__btn"
+

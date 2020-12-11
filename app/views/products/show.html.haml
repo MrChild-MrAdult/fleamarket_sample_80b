@@ -21,7 +21,14 @@
       .tax-fee
         .tax-info (税込)
         .fee-info 送料込み
-    .product-box__btn 購入画面に進む
+    
+    - if current_user.id != @product.user_id
+      .product-box__btn
+        = link_to buy_product_path(@product) do
+          購入画面に進む
+    - else
+
+    
     .product-box__explain
       -# 親譲りの無鉄砲で小供の時から損ばかりしている。
       -# 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。

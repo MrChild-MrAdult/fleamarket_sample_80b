@@ -8,111 +8,105 @@
     
     .search-detail
       .search-detail__title 詳細検索
+      = search_form_for @search, url: search_products_path do |f|
+        .search-detail__keyword
+          .keyword-icon.fas.fa-plus
+          .keyword-text キーワードを追加する
+        = f.text_field :name_cont, placeholder: "例)値下げ", class:"search-detail__keyword--input"
 
-      .search-detail__keyword
-        .keyword-icon.fas.fa-plus
-        .keyword-text キーワードを追加する
-      %input.search-detail__keyword--input{placeholder: "例）値下げ"}
+        .search-detail__category
+          .category-icon.fas.fa-bars
+          .category-text カテゴリーを選択する
+        = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---"}, class:'search-detail__category-box', id:'parent_category'
+        .child_category
 
-      .search-detail__category
-        .category-icon.fas.fa-bars
-        .category-text カテゴリーを選択する
-      .search-detail__category-box
-        .search-detail__category-box--select すべて
-        .search-detail__category-box--allow.fas.fa-angle-down
+        .search-detail__brand
+          .brand-icon.fas.fa-tag
+          .brand-text ブランド名から探す
+        = f.text_field :brand, placeholder: "例)シャネル", class:"search-detail__brand--input"
 
-      .search-detail__brand
-        .brand-icon.fas.fa-tag
-        .brand-text ブランド名から探す
-      %input.search-detail__brand--input{placeholder: "例）シャネル"}
+        .search-detail__size
+          .size-icon.fas.fa-expand
+          .size-text サイズを指定する
+        = f.select :size_id, [["すべて", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "search-detail__size-box"
 
-      .search-detail__size
-        .size-icon.fas.fa-expand
-        .size-text サイズを指定する
-      .search-detail__size-box
-        .search-detail__size-box--select すべて
-        .search-detail__size-box--allow.fas.fa-angle-down
+        .search-detail__price
+          .price-icon.fas.fa-coins
+          .price-text 価格
+        = f.select :price, [["選択してください", 0],["¥300〜1000", 1],["¥1000〜5000", 2],["¥5000〜10000",3],["¥10000〜30000",4],["¥30000〜50000",5],["¥50000〜",6]], {}, class: "search-detail__price-box"
+        .search-detail__price-input
+          = f.number_field :price_gteq, placeholder: "¥ Min", class:"search-detail__price-input--min" 
+          .search-detail__price-input--middle ~
+          = f.number_field :price_lteq, placeholder: "¥ Max", class:"search-detail__price-input--max" 
 
-      .search-detail__price
-        .price-icon.fas.fa-coins
-        .price-text 価格
-      .search-detail__price-box
-        .search-detail__price-box--select 選択してください
-        .search-detail__price-box--allow.fas.fa-angle-down
-      .search-detail__price-input
-        %input.search-detail__price-input--min{placeholder: "¥ Min"}
-        .search-detail__price-input--middle ~
-        %input.search-detail__price-input--max{placeholder: "¥ Max"}
+        .search-detail__condition
+          .condition-icon.fas.fa-star
+          .condition-text 商品の状態
+        .search-detail__condition-box
+          .condition-select
+            = f.radio_button :status_id_eq, "すべて", class:"condition-select__text"
+            .condition-select__text すべて
+          .condition-select
+            = f.radio_button :status_id_eq, "1", class:"condition-select__text"
+            .condition-select__text 新品、未使用
+          .condition-select
+            = f.radio_button :status_id_eq, "2", class:"condition-select__text"
+            .condition-select__text 未使用に近い
+          .condition-select
+            = f.radio_button :status_id_eq, "3", class:"condition-select__text"
+            .condition-select__text 目立った傷や汚れなし
+          .condition-select
+            = f.radio_button :status_id_eq, "4", class:"condition-select__text"
+            .condition-select__text やや傷や汚れあり
+          .condition-select
+            = f.radio_button :status_id_eq, "5", class:"condition-select__text"
+            .condition-select__text 傷や汚れあり
+          .condition-select
+            = f.radio_button :status_id_eq, "6", class:"condition-select__text"
+            .condition-select__text 全体的に状態が悪い
 
-      .search-detail__condition
-        .condition-icon.fas.fa-star
-        .condition-text 商品の状態
-      .search-detail__condition-box
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text すべて
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text 新品、未使用
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text 未使用に近い
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text 目立った傷や汚れなし
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text やや傷や汚れあり
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text 傷や汚れあり
-        .condition-select
-          .condition-select__checkbox ■
-          .condition-select__text 全体的に状態が悪い
+        .search-detail__delivery
+          .delivery-icon.fas.fa-truck
+          .delivery-text 配送料の負担
+        .search-detail__delivery-box
+          .delivery-select
+            = f.radio_button :cost_eq, "すべて", class:"delivery-select__text"
+            .delivery-select__text すべて
+          .delivery-select
+            = f.radio_button :cost_eq, "着払い(購入者負担)", class:"delivery-select__text"
+            .delivery-select__text 着払い(購入者負担)
+          .delivery-select
+            = f.radio_button :cost_eq, "送料込み(出品者負担)", class:"delivery-select__text"
+            .delivery-select__text 送料込み(出品者負担)
 
-      .search-detail__delivery
-        .delivery-icon.fas.fa-truck
-        .delivery-text 配送料の負担
-      .search-detail__delivery-box
-        .delivery-select
-          .delivery-select__checkbox ■
-          .delivery-select__text すべて
-        .delivery-select
-          .delivery-select__checkbox ■
-          .delivery-select__text 着払い(購入者負担)
-        .delivery-select
-          .delivery-select__checkbox ■
-          .delivery-select__text 送料込み(出品者負担)
+        .search-detail__status
+          .status-icon.fas.fa-shopping-cart
+          .status-text 販売状況
+        .search-detail__status-box
+          .status-select
+            = f.radio_button :judgment_eq, "すべて", class:"status-select__text"
+            .status-select__text すべて
+          .status-select
+            = f.radio_button :judgment_eq, "販売中", class:"status-select__text"
+            .status-select__text 販売中
+          .status-select
+            = f.radio_button :judgment_eq, "売り切れ", class:"status-select__text"
+            .status-select__text 売り切れ
 
-      .search-detail__status
-        .status-icon.fas.fa-shopping-cart
-        .status-text 販売状況
-      .search-detail__status-box
-        .status-select
-          .status-select__checkbox ■
-          .status-select__text すべて
-        .status-select
-          .status-select__checkbox ■
-          .status-select__text 販売中
-        .status-select
-          .status-select__checkbox ■
-          .status-select__text 売り切れ
-
-
-      .search-detail__btn
-        .search-detail__btn--clear クリア
-        .search-detail__btn--enter 完了
+        .search-detail__btn
+          .search-detail__btn--clear クリア
+          -# = reset_tag 'クリア', id: 'js_clear_btn', class:"search-detail__btn--clear"
+          = f.submit "完了", class: "search-detail__btn--enter"
 
   .results
     .titlebox
-      .titlebox__keyword 
-        プログラミング
-      .titlebox__subtext の検索結果
+      .titlebox__subtext 
+        検索結果
 
     .counts 1-132件表示
 
     .items-lists
-      - @products.each do |product|
+      - @search_products.each do |product|
         .productBox__List
           = link_to product_path(product) do
             %figure.productBox__img
@@ -123,19 +117,6 @@
                 = product.name
               %p.details
                 = product.price
-                円
-
-      -# .item-detail
-      -#   .item__img
-      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-      -#   .item__content
-      -#     .item__title ee
-      -#     .item__price-like
-      -#       .item-price 1000円
-      -#       .item-like
-      -#         .item-like__icon.fa.fa-star.likeIcon
-      -#         .item-like__num 4 
-      -#     .item__tax (税込)
 
 = render 'footer'
 

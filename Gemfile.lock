@@ -134,6 +134,9 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gretel (4.2.0)
+      actionview (>= 5.1, < 7.0)
+      railties (>= 5.1, < 7.0)
     haml (5.2.0)
       temple (>= 0.8.0)
       tilt
@@ -239,6 +242,10 @@ GEM
       thor (>= 0.20.3, < 2.0)
     raindrops (0.19.1)
     rake (13.0.1)
+    ransack (2.4.0)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -361,6 +368,7 @@ DEPENDENCIES
   factory_bot_rails
   faker (~> 2.8)
   font-awesome-sass
+  gretel
   haml-rails
   jbuilder (~> 2.7)
   jquery-rails
@@ -372,6 +380,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rails-controller-testing
+  ransack
   rspec-rails (~> 4.0.0.beta2)
   sass-rails (>= 6)
   selenium-webdriver
