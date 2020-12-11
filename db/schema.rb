@@ -40,23 +40,21 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
     t.integer "post_code", null: false
-    t.integer "prefecture_id", null: false
+    t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
     t.string "phone_number"
-    t.bigint "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url", null: false
-    t.bigint "product_id"
+    t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_images_on_product_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.integer "status_id", null: false
     t.integer "size_id", null: false
     t.string "description", null: false
+
     t.integer "prefecture_id", null: false
     t.integer "delivery_id", null: false
     t.string "judgment"
@@ -76,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_014940) do
     t.string "first_name_kana", null: false
     t.date "birth_day", null: false
     t.string "user_img"
-    t.text "introduction"
+    t.text "introduciton"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
