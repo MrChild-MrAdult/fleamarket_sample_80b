@@ -73,8 +73,6 @@ class ProductsController < ApplicationController
     end
   end
   
-
-
   def buy
     # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
     # @images = @product.images.all
@@ -104,8 +102,6 @@ class ProductsController < ApplicationController
       redirect_to root_path, alert: "ログインしてください"
     end
   end
-
-
 
   def pay
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
@@ -140,23 +136,17 @@ class ProductsController < ApplicationController
           )
         end
 
-
-
       #productテーブルに登録処理(judgmentカラムに1を代入する)
-      @product.update(judgment: "1")
+      @product.update(judgment: "売却済み", buyer_id: current_user.id)
       # @purchase = Product.create(judgment: 1)
       end
     end
   end
 
-
-
-
-
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :cost, :description, :prefecture_id, :delivery_id, :brand, :size_id, :category_id, :status_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :price, :cost, :description, :prefecture_id, :delivery_id, :brand, :size_id, :category_id, :status_id, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id, judgment: "出品中")
   end
 
   def move_to_index

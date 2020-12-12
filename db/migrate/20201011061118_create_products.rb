@@ -13,6 +13,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.references :user, forenign_key: true
       t.references :category, forenign_key: true
       t.string :brand
+      t.integer :buyer_id
       t.timestamps
     end
   end

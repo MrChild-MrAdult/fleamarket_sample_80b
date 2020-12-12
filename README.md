@@ -74,15 +74,15 @@ Things you may want to cover:
 |name|string|null: false|
 |price|string|null: false|
 |cost|string|null: false|
-|status|string|null: false|
-|size|string|null: false|
+|status_id|string|null: false|
+|size_id|string|null: false|
 |description|string|null: false|
 |prefecture_id|integer|null: false|
-|delivery_day|string|null: false|
+|delivery_id|string|null: false|
 |judgment|string|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true|
+|brand|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user 
 - belongs_to :category dependent: :destroy

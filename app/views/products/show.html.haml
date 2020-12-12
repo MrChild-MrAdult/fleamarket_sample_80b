@@ -4,7 +4,6 @@
 .body
   .product-box
     .product-box__title 
-      -# product
       = @product.name
     .product-box__imgs
       .main-img
@@ -13,8 +12,6 @@
         - @product.images.each do |image|
           .sub-img
             = image_tag image.url.url, size:"140x100"
-        -# .sub-img
-        -# .sub-img
     .product-box__price
       .price-info 
         = @product.price
@@ -27,16 +24,8 @@
         = link_to buy_product_path(@product) do
           購入画面に進む
     - else
-
     
     .product-box__explain
-      -# 親譲りの無鉄砲で小供の時から損ばかりしている。
-      -# 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
-      -# なぜそんな無闇をしたと聞く人があるかも知れぬ。
-      -# 別段深い理由でもない。新築の二階から首を出していたら、
-      -# 同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
-      -# 弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、
-      -# おやじが大きな眼をして二階ぐらいから飛び降りて腰
       = @product.description
     %table.product-box__table
       %tr
@@ -46,17 +35,14 @@
       %tr
         %th カテゴリー
         %td
-          = @parent.name 
+          = link_to parent_category_path(@parent) do
+            = @parent.name 
           %br>/
-          = @child.name 
+          = link_to child_category_path(@child) do
+            = @child.name 
           %br>/
-          = @grandchild.name
-        -# %td
-        -#   ベビー・キッズ
-        -#   %br>/
-        -#   ベビー服(男女兼用) ~95cm
-        -#   %br>/
-        -#   アウター
+          = link_to grandchild_category_path(@grandchild) do
+            = @grandchild.name
       %tr
         %th ブランド
         %td 
