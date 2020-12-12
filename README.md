@@ -80,6 +80,7 @@ Things you may want to cover:
 |prefecture_id|integer|null: false|
 |delivery_id|string|null: false|
 |judgment|string|
+|buyer_id|integer|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand|integer|null: false, foreign_key: true|
@@ -88,6 +89,7 @@ Things you may want to cover:
 - belongs_to :category dependent: :destroy
 - belongs_to :brand dependent: :destroy, optional: true
 - has_many :images dependent: :destroy
+- belongs_to :buyer, class_name: "User", optional: true
 
 ## categoriesテーブル
 |Column|Type|Options|
