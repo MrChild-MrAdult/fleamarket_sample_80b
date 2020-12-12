@@ -17,7 +17,7 @@
         .search-detail__category
           .category-icon.fas.fa-bars
           .category-text カテゴリーを選択する
-        = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---"}, class:'search-detail__category-box', id:'parent_category'
+        = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---"}, class:'search-detail__category-box', id:'search_category'
         .child_category
 
         .search-detail__brand
@@ -105,18 +105,20 @@
 
     .counts 1-132件表示
 
-    .items-lists
+    .productBox
       - @search_products.each do |product|
         .productBox__List
           = link_to product_path(product) do
             %figure.productBox__img
-              -product.images.each do |image|
-                = image_tag image.url.to_s
+              = image_tag product.images[0].url.url
             .productBox__body
-              %p.name
-                = product.name
-              %p.details
-                = product.price
+              = product.name
+              .details
+                %ul
+                  %li #{product.price}円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                %p (税込)
 
 = render 'footer'
 
