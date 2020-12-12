@@ -107,7 +107,8 @@ class ProductsController < ApplicationController
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     # (２重で決済されることを防ぐ)
     
-    if @product.judgment.present?
+    # if @product.judgment.present?
+    if @product.judgment == "売却済み"
       redirect_to product_path(@product.id), alert: "売り切れています。"
     else
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
@@ -136,7 +137,7 @@ class ProductsController < ApplicationController
           )
         end
 
-      #productテーブルに登録処理(judgmentカラムに1を代入する)
+      #productテーブルに登録処理(judgmentカラムに売却済みを追加する)
       @product.update(judgment: "売却済み", buyer_id: current_user.id)
       # @purchase = Product.create(judgment: 1)
       end
