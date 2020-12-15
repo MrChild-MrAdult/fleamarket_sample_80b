@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
       var childSelectHtml = '';
       childSelectHtml = `<div class='product__box__added' id= 'children_wrapper'>
                           <div class='category__box__parent'>
-                            <select class="search-detail__category-box" id="child_category" name="product[category_id]">
+                            <select class="search-detail__category-box" id="child_category" name="q[category_id_eq]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>
@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='product__box__added' id= 'grandchildren_wrapper'>
                                 <div class='category__box__parent'>
-                                  <select class="search-detail__category-box" id="grandchild_category" name="product[category_id]">
+                                  <select class="search-detail__category-box" id="grandchild_category" name="q[category_id_eq]">
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
@@ -84,26 +84,4 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
-
-
-
-// クリアボタンのアクション
-$(function () {
-  $("#js_conditions_clear").on("click", function () {
-      clearForm(this.form);
-  });
-
-  function clearForm (form) {
-    $(form)
-        .find("input, select, textarea")
-        .not(":button, :submit, :reset, :hidden")
-        .val("")
-        .prop("checked", false)
-        .prop("selected", false)
-    ;
-    $('select[name=sort_order]').children().first().attr('selected', true);
-    $('#children_category_search').remove();
-    $('#grandchildren_category_checkboxes').remove();
-  }
 });

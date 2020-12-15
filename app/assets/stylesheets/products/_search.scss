@@ -301,6 +301,7 @@ $furima-color: #3CCACE;
           align-items: center;
           color: #fff;
           background-color: $border-color;
+          border: none;
         }
         &--enter {
           width: 110px;
@@ -311,6 +312,7 @@ $furima-color: #3CCACE;
           align-items: center;
           color: #fff;
           background-color: $furima-color;
+          border: none;
         }
       }
     }

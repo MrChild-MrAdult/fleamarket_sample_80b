@@ -17,23 +17,22 @@
         .search-detail__category
           .category-icon.fas.fa-bars
           .category-text カテゴリーを選択する
-        = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---"}, class:'search-detail__category-box', id:'search_category'
+        = f.collection_select :category_id_eq, Category.roots, :id, :name, {include_blank:"---"}, class:'search-detail__category-box', id:'search_category'
         .child_category
 
         .search-detail__brand
           .brand-icon.fas.fa-tag
           .brand-text ブランド名から探す
-        = f.text_field :brand, placeholder: "例)シャネル", class:"search-detail__brand--input"
+        = f.text_field :brand_eq, placeholder: "例)シャネル", class:"search-detail__brand--input"
 
         .search-detail__size
           .size-icon.fas.fa-expand
           .size-text サイズを指定する
-        = f.select :size_id, [["すべて", 0],["大きい", 1],["中くらい", 2],["小さい",3]], {}, class: "search-detail__size-box"
+        = f.collection_select :size_id_eq, Status.where.not(id: 0), :id, :name, {include_blank:"---"}, class: "search-detail__size-box"
 
         .search-detail__price
           .price-icon.fas.fa-coins
           .price-text 価格
-        = f.select :price, [["選択してください", 0],["¥300〜1000", 1],["¥1000〜5000", 2],["¥5000〜10000",3],["¥10000〜30000",4],["¥30000〜50000",5],["¥50000〜",6]], {}, class: "search-detail__price-box"
         .search-detail__price-input
           = f.number_field :price_gteq, placeholder: "¥ Min", class:"search-detail__price-input--min" 
           .search-detail__price-input--middle ~
@@ -42,10 +41,7 @@
         .search-detail__condition
           .condition-icon.fas.fa-star
           .condition-text 商品の状態
-        .search-detail__condition-box
-          .condition-select
-            = f.radio_button :status_id_eq, "すべて", class:"condition-select__text"
-            .condition-select__text すべて
+        .search-detail__condition-box 
           .condition-select
             = f.radio_button :status_id_eq, "1", class:"condition-select__text"
             .condition-select__text 新品、未使用
@@ -70,9 +66,6 @@
           .delivery-text 配送料の負担
         .search-detail__delivery-box
           .delivery-select
-            = f.radio_button :cost_eq, "すべて", class:"delivery-select__text"
-            .delivery-select__text すべて
-          .delivery-select
             = f.radio_button :cost_eq, "着払い(購入者負担)", class:"delivery-select__text"
             .delivery-select__text 着払い(購入者負担)
           .delivery-select
@@ -84,18 +77,14 @@
           .status-text 販売状況
         .search-detail__status-box
           .status-select
-            = f.radio_button :judgment_eq, "すべて", class:"status-select__text"
-            .status-select__text すべて
-          .status-select
-            = f.radio_button :judgment_eq, "販売中", class:"status-select__text"
+            = f.radio_button :judgment_eq, "出品中", class:"status-select__text"
             .status-select__text 販売中
           .status-select
-            = f.radio_button :judgment_eq, "売り切れ", class:"status-select__text"
+            = f.radio_button :judgment_eq, "売却済み", class:"status-select__text"
             .status-select__text 売り切れ
 
         .search-detail__btn
-          .search-detail__btn--clear クリア
-          -# = reset_tag 'クリア', id: 'js_clear_btn', class:"search-detail__btn--clear"
+          = reset_tag 'クリア', id: 'js_clear_btn', class:"search-detail__btn--clear"
           = f.submit "完了", class: "search-detail__btn--enter"
 
   .results
