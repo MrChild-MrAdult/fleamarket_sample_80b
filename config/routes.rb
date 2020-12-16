@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'logout', to: 'users/sessions#logout'
   end
   root 'products#index'
-  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :products do
     collection do
       get :search
       get 'get_category_children', defaults: { format: 'json' }
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users, only: [:show, :edit] do
+  resources :users, only: [:show, :edit, :update] do
     resources :credit_cards, only: [:new, :create, :show, :destroy] do
     end
 

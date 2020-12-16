@@ -21,17 +21,33 @@
                 = link_to "#{child.name}", grandchild_category_path(child.id), class: "itemTitle"
       .productBox
         - @categories_product.each do |product|
-          .productBox__List
-            = link_to product_path(product) do
-              %figure.productBox__img
-                = image_tag product.images[0].url.url
-              .productBox__body
-                = product.name
-                .details
-                  %ul
-                    %li #{product.price}円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                  %p (税込)
+          - if product.judgment == "出品中"
+            .productBox__List
+              = link_to product_path(product.id) do
+                %figure.productBox__img
+                  = image_tag product.images[0].url.url
+                .productBox__body
+                  = product.name
+                  .details
+                    %ul
+                      %li #{product.price}円
+                      %li
+                        %i.fa.fa-star.likeIcon
+                    %p (税込)
+          - else
+            .productBox__List
+              = link_to product_path(product.id) do
+                %figure.productBox__img
+                  = image_tag product.images[0].url.url
+                  .productBox__img__soldout
+                    SoldOut
+                .productBox__body
+                  = product.name
+                  .details
+                    %ul
+                      %li #{product.price}円
+                      %li
+                        %i.fa.fa-star.likeIcon
+                    %p (税込)
 
 = render 'products/footer'

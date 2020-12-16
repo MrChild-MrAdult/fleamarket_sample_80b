@@ -21,7 +21,7 @@
               0
     .users-detail-description_box
       %p.font2  
-        %text_area 自己紹介文を記入しよう！
+        = @introduction
       .user-profile
         = link_to "編集する", edit_user_path(current_user), class: "edit"
     %h2.item-box-head 
