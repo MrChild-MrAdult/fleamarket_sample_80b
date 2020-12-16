@@ -432,6 +432,23 @@ img {
     overflow: hidden;
     margin: 0;
     z-index: auto;
+    &__soldout {
+      position: absolute;
+      background-color: red;
+      color: white;
+      height: 30px;
+      width: 93px;
+      font-size: 25px;
+    }
+    &__soldout__search {
+      position: absolute;
+      background-color: red;
+      color: white;
+      height: 30px;
+      width: 93px;
+      font-size: 25px;
+      padding-top: 5px;
+    }
   }
   &__img img {
     position: absolute;
