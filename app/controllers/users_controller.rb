@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, only: [:edit, :update]
 
   def show
     user = User.find(params[:id])
@@ -9,13 +9,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(current_user), notice: '変更されました'
+    if @user.update(user_params)
+      redirect_to user_path(current_user), notice: '変更されました'
+    else
+      flash.now[:alert] = 'エラーです'
+      render :edit
+    end
   end
 
   def logout
@@ -30,4 +32,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:introduction)
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
